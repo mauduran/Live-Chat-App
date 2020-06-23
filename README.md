@@ -1,6 +1,6 @@
 # Live-Chat-App
 React Web App used for live chat 
 
-#Authors
+# Authors
 @mauduran
 @JPPRR44
