@@ -3,15 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import './styles/App.css';
 
-
-/// Comment 2
-
 function App() {
   return (
     <div className="App">
       <Router >
         <Switch>
-          <Route exact path="/" render={() => { return <h1> Home</h1> }} />
+          <Route exact path="/" render={() => { return <h1>Hola</h1>}} />
         </Switch>
       </Router>
     </div>
