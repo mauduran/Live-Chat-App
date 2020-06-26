@@ -1,19 +1,11 @@
 import React from 'react';
-import './register.css';
-import homeMessage from '../HomeMessage/homeMessage'
+import './Register.css';
 
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 
-const register = () => {
+const Register = () => {
     return(
-        <Container >
-            <br/><br/><br/><br/><br/>
-            <Row>
-                <Col id = 'colRegisterMessage'>
-                    
-                </Col>
-                <Col>
-                    <Container id = "containerRegister">
+                    <Container id = "containerRegister" style={{backgroundColor: "#f8f8f8"}}>
                         <Form id = "formRegister">
                             <h1 id = "h1Register">Register</h1>
                             <hr id = "hrRegister"/>
@@ -70,10 +62,7 @@ const register = () => {
                             <br/>
                         </Form>
                     </Container>
-                </Col>
-            </Row>
-        </Container>
     )
 }
 
-export default register
+export default Register;

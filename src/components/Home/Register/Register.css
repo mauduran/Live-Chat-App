@@ -3,6 +3,8 @@
 #containerRegister{
     border: 1px solid;
     border-radius: 15px; 
+    width: 500px;
+    margin: 0;
 }
 
 #buttonRegister{
@@ -21,3 +23,5 @@
 #colRegisterMessage{
     text-align: center;
 }
+
+
