@@ -1,5 +1,7 @@
 import React from 'react';
 import './register.css';
+import homeMessage from '../HomeMessage/homeMessage'
+
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 
 const register = () => {
@@ -8,9 +10,7 @@ const register = () => {
             <br/><br/><br/><br/><br/>
             <Row>
                 <Col id = 'colRegisterMessage'>
-                    <br/><br/><br/><br/><br/>
-                    <h1>Ready to talk?</h1>
-                    <h3>The world is one message away</h3>
+                    
                 </Col>
                 <Col>
                     <Container id = "containerRegister">
