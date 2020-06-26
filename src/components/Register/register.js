@@ -35,7 +35,7 @@ const register = () => {
                             <Col>
                                     <FormGroup>
                                         <Label for="Email">Email</Label>
-                                        <Input type="Email" name="Email" id="Email" placeholder="Enter your Email" />
+                                        <Input type="email" name="Email" id="Email" placeholder="Enter your Email" />
                                     </FormGroup>
                             </Col>
                             </Row>
