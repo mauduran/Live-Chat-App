@@ -1,0 +1,23 @@
+/* REGISTER DESIGN PAGE */
+
+#containerRegister{
+    border: 1px solid;
+    border-radius: 15px; 
+}
+
+#buttonRegister{
+    width: 100%;
+}
+
+#hrRegister{
+    border: 1px solid;
+    color: gray;
+}
+
+#h1Register{
+    text-align: center;
+}
+
+#colRegisterMessage{
+    text-align: center;
+}
