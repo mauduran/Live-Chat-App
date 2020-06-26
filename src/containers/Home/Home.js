@@ -3,7 +3,7 @@ import BackgroundImage from '../../assets/img/backgroundHome.jpeg';
 import './Home.css'
 import Register from '../../components/Home/Register/Register';
 
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 import HomeMessage from '../../components/Home/HomeMessage/HomeMessage';
 
 export default class Home extends Component {
