@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Dropdown, DropdownMenu, DropdownToggle, DropdownItem } from 'reactstrap';
+import Switch from '@material-ui/core/Switch';
 
 export default function SettingsButton({ setisLogged }) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
+
 
     return (
         <div >
@@ -21,7 +23,16 @@ export default function SettingsButton({ setisLogged }) {
                     <hr />
                     <DropdownItem><i className="fas fa-lock fa-fw"></i> Change Password</DropdownItem>
                     <hr />
-                    <DropdownItem><i className="fas fa-moon fa-fw"></i> Dark Mode</DropdownItem>
+                    <DropdownItem onClick={()=>{}}>
+                        <i className="fas fa-moon fa-fw"></i> 
+                        Dark Mode
+                        <Switch
+                            checked={true}
+                            onChange={() => { }}
+                            color="primary"
+                            name="checkedB"
+                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                        /></DropdownItem>
                     <hr />
                     <DropdownItem onClick={() => setisLogged(false)}><i className="fas fa-sign-out-alt fa-fw"></i> Log Out</DropdownItem>
                 </DropdownMenu>
