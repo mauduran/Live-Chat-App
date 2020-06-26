@@ -67,6 +67,10 @@
     top: 15px !important;
 }
 
+.dropdown-menu > * {
+    margin: 10px 0;
+}
+
 .dropdown-menu .fas{
     margin-right: 5px;
     font-size: 18px;
