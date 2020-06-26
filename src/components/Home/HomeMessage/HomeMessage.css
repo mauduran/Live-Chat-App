@@ -1,0 +1,27 @@
+#homeMessage{
+    /* background-color: #f8f8f8; */
+    padding: 10px;
+    border-radius: 5px;
+    /* border: 1px solid #383838; */
+    color: white;
+    width: fit-content;
+    float: right;
+}
+
+#homeMessage *{
+    text-align: right;
+    font-family: 'Roboto', sans-serif;
+}
+
+#homeMessage h1{
+    font-size: 50px;
+}
+
+#homeMessage h2{
+    font-size: 32px;
+}
+
+#homeMessage h3{
+    font-size: 24px;
+    font-style: italic;
+}
