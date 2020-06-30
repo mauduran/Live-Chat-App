@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './styles/App.css';
 import Navigation from './components/Navigation/Navigation';
 import Home from './containers/Home/Home';
-import Login from './containers/Login/Login'
+import MyProfile from './containers/MyProfile/MyProfile'
 
 function App() {
   const [isLogged, setisLogged] = useState(false);
@@ -14,7 +14,7 @@ function App() {
         <Navigation isLogged={isLogged} setisLogged={setisLogged} />
         <div id="content">
           <Switch>
-            <Route exact path="/" render={()=><Login/>} />
+            <Route exact path="/" render={()=><MyProfile/>} />
           </Switch>
         </div>
       </Router>
@@ -23,3 +23,4 @@ function App() {
 }
 
 export default App;
+
