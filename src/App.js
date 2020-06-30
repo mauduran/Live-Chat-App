@@ -5,6 +5,7 @@ import Navigation from './components/Navigation/Navigation';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login'
 import UserSearch from './containers/UserSearch/UserSearch';
+import MyProfile from './containers/MyProfile/MyProfile';
 
 function App() {
   const [isLogged, setisLogged] = useState(false);
@@ -17,6 +18,7 @@ function App() {
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/login" render={()=><Login/>} />
+            <Route exact path="/MyProfile" render={()=><MyProfile/>} />
             <Route path="/search/:searchQuery" render={() => <UserSearch />} />
           </Switch>
         </div>
