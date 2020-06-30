@@ -16,6 +16,7 @@ function App() {
         <div id="content">
           <Switch>
             <Route exact path="/" render={() => <Home />} />
+            <Route exact path="/login" render={()=><Login/>} />
             <Route path="/search/:searchQuery" render={() => <UserSearch />} />
           </Switch>
         </div>
