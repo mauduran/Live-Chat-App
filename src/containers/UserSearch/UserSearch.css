@@ -1,0 +1,8 @@
+.userResultsContainer{
+    width: 75%;
+    height: 90%;
+    margin: 3% auto;
+    padding: 0.01%;
+    overflow-y: scroll;
+}
+

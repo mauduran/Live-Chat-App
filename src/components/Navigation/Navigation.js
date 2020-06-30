@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Input } from "reactstrap";
 import { NavLink, withRouter } from "react-router-dom";
 
@@ -6,7 +6,17 @@ import Logo from '../../assets/img/small_talk.png'
 import './Navigation.css';
 import SettingsButton from './SettingsButton';
 
-function Navigation({ isLogged, setisLogged }) {
+function Navigation({ isLogged, setisLogged, history }) {
+    const [searchInput, setsearchInput] = useState("");
+
+
+    const searchUsers = (e) =>{
+        if(e.key === 'Enter' && searchInput){
+            history.push(`/search/${searchInput}`);
+            setsearchInput("");
+
+        }
+    }
 
     return (
         <nav id="navbar">
@@ -17,7 +27,10 @@ function Navigation({ isLogged, setisLogged }) {
             {
                 (isLogged) ? (
                     <>
-                        <Input type="text" name="searchProfiles" id="searchProfiles" style={{ width: "40%" }} placeholder="Search Profile..." />
+                        <Input type="text" name="searchProfiles" id="searchProfiles" 
+                            style={{ width: "40%" }} placeholder="Search Profile..." 
+                            value={searchInput} onChange={e=> setsearchInput(e.target.value)}
+                            onKeyPress={searchUsers}/>
 
                         <div className="nav-links-container">
                             <NavLink to="/messages" className="navLink" activeStyle={{ color: '#696969' }}>

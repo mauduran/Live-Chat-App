@@ -1,0 +1,59 @@
+.userResultCard {
+    margin: 0 auto;
+    width: 95%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #383838;
+    padding: 0 2.5%;
+    border-radius: 10px;
+}
+
+.userResultCard:not(:first-child) {
+    margin-top: 2%;
+}
+
+.userResultCard img {
+    height: 80%;
+    border-radius: 100%;
+}
+
+.userResultCard button {
+    width: 20%;
+}
+
+.userInfo {
+    width: 50%;
+}
+
+.userInfo h1 {
+    font-size: 28px;
+}
+
+.userInfo h2 {
+    font-size: 20px;
+}
+
+@media (max-width: 800px) {
+    .userResultCard {
+        height: 15%;
+    }
+    .userResultCard img {
+        width: 20%;
+        height: auto;
+    }
+    .userInfo h1 {
+        font-size: 15px;
+    }
+    .userInfo h2 {
+        font-size: 12px;
+    }
+    .userResultCard button {
+        font-size: 0.75em;
+        width: 30%;
+    }
+    .userInfo {
+        width: 40%;
+    }
+}
