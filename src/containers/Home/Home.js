@@ -16,9 +16,6 @@ export default class Home extends Component {
                             <Register />
                 </Container>
 
-                <div style={{color: "#aaa",  height:"3%", width: "100%", backgroundColor: "#383838", textAlign: "center"}}>
-                    Created by Mauricio Durán & Juan Pablo Ramos
-                </div>
             </div>
         )
     }
