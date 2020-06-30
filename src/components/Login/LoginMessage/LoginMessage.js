@@ -1,7 +1,7 @@
 import React from 'react';
-import './LoginM.css';
+import './LoginMessage.css';
 import { Button, Form, FormGroup, Label, Input, Container} from 'reactstrap';
-import Logo from '../../components/Logo/Logo'
+import Logo from '../Logo/Logo'
 
 const Login = () => {
     return(
