@@ -5,23 +5,21 @@ import ProfileInfo from '../../components/MyProfile/ProfileInfo/ProfileInfo'
 import EditableInfo from '../../components/MyProfile/EditableInfo/EditableInfo'
 import { Form, FormGroup,Container, Row, Col } from 'reactstrap';
 import './MyProfile.css'
-import LoginMessage from '../../components/LoginMessage/LoginMessage';
-
 
 
 export default class Home extends Component {
     render() { 
         return (
-            <div id="MyPrifile" style={{ backgroundImage: `url(${BackgroundImage})`, backgroundSize: 'cover'}}>
+            <div id="MyProfile" style={{ backgroundImage: `url(${BackgroundImage})`, backgroundSize: 'cover'}}>
                 <Container id = "containerMyProfile">
                         <Form id = "formProfile">
                             <Row>
-                                <Col>
+                                <Col id = "PP">
                                     <FormGroup>  
                                         <PP/>
                                     </FormGroup>
                                 </Col>
-                                <Col>
+                                <Col id = "ProfileInfo">
                                     <FormGroup>
                                         <ProfileInfo/>
                                     </FormGroup> 
@@ -32,7 +30,6 @@ export default class Home extends Component {
                             </Row>
                         </Form>
                     </Container>
-                    <LoginMessage/>
             </div>
         )
     } 
