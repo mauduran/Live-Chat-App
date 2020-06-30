@@ -11,7 +11,7 @@ const Login = () => {
                 <Form>
                     <FormGroup>
                         <Label for="usernameLogin">Username or email</Label>
-                        <Input type="text" name="username" id="usernameLogin" placeholder="Enter your username or password" />
+                        <Input type="text" name="username" id="usernameLogin" placeholder="Enter your username or Email" />
                     </FormGroup>
                     <FormGroup>
                         <Label for="passwordLogin">Password</Label>
