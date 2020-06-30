@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './styles/App.css';
 import Navigation from './components/Navigation/Navigation';
-import Home from './containers/Home/Home';
-import Login from './containers/Login/Login'
-import UserSearch from './containers/UserSearch/UserSearch';
+import MyProfile from './containers/MyProfile/MyProfile'
+import UserSearch from './containers/UserSearch/UserSearch'
 
 function App() {
   const [isLogged, setisLogged] = useState(false);
@@ -15,9 +14,7 @@ function App() {
         <Navigation isLogged={isLogged} setisLogged={setisLogged} />
         <div id="content">
           <Switch>
-            <Route exact path="/" render={() => <Home />} />
-            <Route exact path="/login" render={()=><Login/>} />
-            <Route path="/search/:searchQuery" render={() => <UserSearch />} />
+            <Route exact path="/" render={()=><UserSearch/>} />
           </Switch>
         </div>
       </Router>
@@ -29,3 +26,4 @@ function App() {
 }
 
 export default App;
+
