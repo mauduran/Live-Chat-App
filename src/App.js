@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './styles/App.css';
 import Navigation from './components/Navigation/Navigation';
-import Home from './containers/Home/Home';
 import MyProfile from './containers/MyProfile/MyProfile'
 
 function App() {
