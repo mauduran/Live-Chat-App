@@ -6,6 +6,7 @@ import Home from './containers/Home/Home';
 import Login from './containers/Login/Login'
 import UserSearch from './containers/UserSearch/UserSearch';
 import MyProfile from './containers/MyProfile/MyProfile';
+import Profile from './containers/Profile/Profile';
 
 function App() {
   const [isLogged, setisLogged] = useState(false);
@@ -19,6 +20,7 @@ function App() {
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/login" render={()=><Login/>} />
             <Route exact path="/MyProfile" render={()=><MyProfile/>} />
+            <Route exact path="/Profile" render={()=><Profile/>} />
             <Route path="/search/:searchQuery" render={() => <UserSearch />} />
           </Switch>
         </div>
