@@ -4,12 +4,12 @@ import PP from '../../components/Profile/PP/PP'
 import ProfileInfo from '../../components/Profile/ProfileInfo/ProfileInfo'
 import Actions from '../../components/Profile/Actions/Actions';
 import { Form, FormGroup,Container, Row, Col } from 'reactstrap';
-
+import './Profile.css'
 
 export default class Home extends Component {
     render() { 
         return (
-            <div id="MyProfile" style={{ backgroundImage: `url(${BackgroundImage})`, backgroundSize: 'cover'}}>
+            <div id="Profile" style={{ backgroundImage: `url(${BackgroundImage})`, backgroundSize: 'cover'}}>
                 <Container id = "containerMyProfile">
                         <Form id = "formProfile">
                             <Row>
