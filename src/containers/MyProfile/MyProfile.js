@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BackgroundImage from '../../assets/img/backgroundHome.jpeg';
 import PP from '../../components/MyProfile/PP/PP'
 import ProfileInfo from '../../components/MyProfile/ProfileInfo/ProfileInfo'
 import EditableInfo from '../../components/MyProfile/EditableInfo/EditableInfo'
@@ -10,7 +9,7 @@ import './MyP.css'
 export default class Home extends Component {
     render() { 
         return (
-            <div id="MyProfile" style={{ backgroundImage: `url(${BackgroundImage})`, backgroundSize: 'cover'}}>
+            <div id="MyProfile">
                 <Container id = "containerMyProfile">
                         <Form id = "formProfile">
                             <Row>
