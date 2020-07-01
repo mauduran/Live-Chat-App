@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, FormGroup, Label, Input, Container, Row, Col, Button  } from 'reactstrap';
+import {Container, Row, Col, Button  } from 'reactstrap';
 import './Actions.css';
 
 const Actions = () => {
