@@ -18,9 +18,9 @@ function App() {
         <div id="content">
           <Switch>
             <Route exact path="/" render={() => <Home />} />
-            <Route exact path="/login" render={()=><Login/>} />
-            <Route exact path="/MyProfile" render={()=><MyProfile/>} />
-            <Route exact path="/Profile" render={()=><Profile/>} />
+            <Route path="/login" render={()=><Login/>} />
+            <Route path="/myprofile" render={()=><MyProfile/>} />
+            <Route path="/profile/:id" render={()=><Profile/>} />
             <Route path="/search/:searchQuery" render={() => <UserSearch />} />
           </Switch>
         </div>
