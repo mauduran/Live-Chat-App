@@ -7,9 +7,9 @@ const Actions = () => {
         <Container>
             <br/><br/><br/>            
             <Row id = "rowButtons">
-                <Col><Button color="primary" style={{width: '100%'}}> Message</Button></Col>
-                <Col><Button color="primary" style={{width: '100%'}}>Mute</Button></Col>
-                <Col><Button color="primary" style={{width: '100%'}}>Block</Button></Col>
+                <Col><Button color="primary"style={{width: '100%', }}><i class="fa fa-commenting" aria-hidden="true"></i> Message</Button></Col>
+                <Col><Button color="primary" style={{width: '100%'}}><i class="fa fa-volume-off" aria-hidden="true"></i>Mute</Button></Col>
+                <Col><Button color="primary" style={{width: '100%'}}><i class="fa fa-ban" aria-hidden="true"></i>Block</Button></Col>
             </Row>
             <br/>
         </Container>
