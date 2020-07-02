@@ -68,7 +68,7 @@ function UserSearch({ match }) {
                 users
                     .filter(user => user.name.toLowerCase().includes(input)
                         || user.userName.toLowerCase().includes(input))
-                    .map(user => <UserResultCard key={user.userId} user={user} />)
+                    .map(user => <UserResultCard key={user.userId}  user={user} />)
             }
         </div>
     )
