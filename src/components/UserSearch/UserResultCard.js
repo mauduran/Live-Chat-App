@@ -17,7 +17,7 @@ function UserResultCard({ user, history }) {
                 <h2>{user.location}</h2>
             </div>
 
-            <button className="btn btn-info" onClick={() => goto(2)}>View Profile</button>
+            <button className="btn btn-info" onClick={() => goto(user.userId)}>View Profile</button>
 
         </div>
     )
