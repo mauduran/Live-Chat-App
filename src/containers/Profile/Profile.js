@@ -1,5 +1,4 @@
 import React from 'react';
-import BackgroundImage from '../../assets/img/backgroundHome.jpeg';
 import ProfileInfo from '../../components/Profile/ProfileInfo'
 import { withRouter } from 'react-router-dom';
 import './Profile.css';
