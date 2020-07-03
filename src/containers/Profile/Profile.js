@@ -63,13 +63,12 @@ const users = [
 ]
 
 function Profile({ match }) {
-    const input = (match.params.searchQuery)? match.params.searchQuery.toLowerCase(): "";
+    const input = (match.params.searchQuery)? match.params.searchQuery: "";
     return (
-        <div className="userResultsContainer">
+        <div className="Profile">
             {
                 users
-                    .filter(user => user.name.includes(input)
-                        || user.userName.toLowerCase().includes(input))
+                    .filter(user => user.name.includes(input))
                     .map(user => <ProfileInfo key={user.userId}  user={user} />)
             }
         </div>
