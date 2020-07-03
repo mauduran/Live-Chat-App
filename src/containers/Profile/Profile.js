@@ -1,9 +1,8 @@
 import React from 'react';
 import BackgroundImage from '../../assets/img/backgroundHome.jpeg';
 import ProfileInfo from '../../components/Profile/ProfileInfo'
-import './Profile.css'
 import { withRouter } from 'react-router-dom';
-
+import './Profile.css';
 
 const users = [
     {
@@ -63,13 +62,14 @@ const users = [
 ]
 
 function Profile({ match }) {
-    const input = (match.params.searchQuery)? match.params.searchQuery: "";
+    const input = (match.params.id)? match.params.id: "";
+    const inputInt = parseInt(input);
     return (
-        <div className="Profile">
+        <div id="Profile">
             {
                 users
-                    .filter(user => user.name.includes(input))
-                    .map(user => <ProfileInfo key={user.userId}  user={user} />)
+                    .filter(user => user.userId === inputInt)
+                    .map(user => <ProfileInfo key={user.userId} user={user} />)
             }
         </div>
     )

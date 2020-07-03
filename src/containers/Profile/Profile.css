@@ -10,4 +10,7 @@
     position: fixed;
     top: 10;
     left: 0;
+    background: rgb(189, 195, 199);
+    background: linear-gradient(270deg, rgba(189, 195, 199, 1) 0%, rgba(44, 62, 80, 1) 100%);
+    background: -webkit-linear-gradient(270deg, rgba(189, 195, 199, 1) 0%, rgba(44, 62, 80, 1) 100%);
 }

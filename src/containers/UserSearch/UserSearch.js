@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import UserResultCard from '../../components/UserSearch/UserResultCard';
 import './UserSearch.css'
 
+
 const users = [
     {
         userId: 1,
