@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import UserResultCard from '../../components/UserSearch/UserResultCard';
 import './UserSearch.css'
+import BackButton from '../../components/BackButton/BackButton'
 
 const users = [
     {
@@ -64,11 +65,12 @@ function UserSearch({ match }) {
     const input = (match.params.searchQuery)? match.params.searchQuery.toLowerCase(): "";
     return (
         <div className="userResultsContainer">
+            <BackButton/>
             {
                 users
                     .filter(user => user.name.toLowerCase().includes(input)
                         || user.userName.toLowerCase().includes(input))
-                    .map(user => <UserResultCard key={user.userId} user={user} />)
+                    .map(user => <UserResultCard key={user.userId}  user={user} />)
             }
         </div>
     )

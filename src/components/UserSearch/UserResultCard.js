@@ -1,7 +1,13 @@
 import React from 'react';
 import './UserResultCard.css';
+import { withRouter } from 'react-router-dom'
 
-export default function UserResultCard({ user }) {
+function UserResultCard({ user, history }) {
+
+    function goto(user){
+        history.push(`/profile/${user}`)
+    }
+
     return (
         <div className="userResultCard">
             <img src="https://www.w3schools.com/howto/img_avatar.png" alt="user profile" />
@@ -11,8 +17,10 @@ export default function UserResultCard({ user }) {
                 <h2>{user.location}</h2>
             </div>
 
-            <button className="btn btn-info">View Profile</button>
+            <button className="btn btn-info" onClick={() => goto(user.userId)}>View Profile</button>
 
         </div>
     )
 }
+
+export default withRouter(UserResultCard)
