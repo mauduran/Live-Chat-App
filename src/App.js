@@ -7,6 +7,7 @@ import Login from './containers/Login/Login'
 import UserSearch from './containers/UserSearch/UserSearch';
 import MyProfile from './containers/MyProfile/MyProfile';
 import Profile from './containers/Profile/Profile';
+import Messages from './containers/Messages/Messages';
 
 function App() {
   const [isLogged, setisLogged] = useState(false);
@@ -22,6 +23,7 @@ function App() {
             <Route path="/myprofile" render={()=><MyProfile/>} />
             <Route path="/profile/:id" render={()=><Profile/>} />
             <Route path="/search/:searchQuery" render={() => <UserSearch />} />
+            <Route path="/messages" render={() => <Messages />} />
           </Switch>
         </div>
       </Router>
