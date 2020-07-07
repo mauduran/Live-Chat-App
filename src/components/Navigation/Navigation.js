@@ -33,7 +33,7 @@ function Navigation({ isLogged, setisLogged, history }) {
                             onKeyPress={searchUsers}/>
 
                         <div className="nav-links-container">
-                            <NavLink to="/messages" className="navLink" activeStyle={{ color: '#696969' }}>
+                            <NavLink to="/messages" className="navLink">
                                 <span><i className="fas fa-comment-alt"></i></span>
                             </NavLink>
 

@@ -39,7 +39,7 @@
     margin: 0 10px;
 }
 
-.navLink:hover, .navLink:active{
+.navLink:hover{
     color: #696969;
     text-decoration: none;
 }
