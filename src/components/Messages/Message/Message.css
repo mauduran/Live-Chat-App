@@ -1,0 +1,32 @@
+
+.messageContainer{
+    margin-bottom: 20px;
+    height: fit-content;
+}
+
+.messageContainer.ownMessage{
+    display: flex;
+    justify-content: flex-end;
+}
+.message{
+    position: relative;
+    padding: 20px 10px;
+    background-color: #b8b8b8;
+    color: #383838;
+    width: fit-content;
+    max-width: 30%;
+    height: fit-content;
+    border-radius: 10px;
+}
+
+.ownMessage .message{
+    padding: 10px 10px 10px;
+    background-color: #1e7bfc;
+    color: white;
+}
+
+
+.message p{
+    margin: 0;
+    padding: 0;
+}
