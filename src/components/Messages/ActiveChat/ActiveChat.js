@@ -3,6 +3,7 @@ import ActiveChatMessages from '../ActiveChatMessages/ActiveChatMessages'
 import ConversationBar from '../ConversationBar/ConversationBar';
 import ActiveChatInfo from '../ActiveChatInfo/ActiveChatInfo';
 import ActiveChatInput from '../ActiveChatInput/ActiveChatInput';
+import CreateConvoBar from '../CreateConvoBar/CreateConvoBar';
 
 const dummyMessages = [
     {
@@ -69,7 +70,8 @@ export default function ActiveChat({ activeConversation }) {
     const [messages, setmessages] = useState(dummyMessages)
     return (
         <div id='ActiveConversation' >
-            <ConversationBar activeConversation={activeConversation} />
+            {/* <ConversationBar activeConversation={activeConversation} /> */}
+            <CreateConvoBar/>
             <div style={{ display: 'flex', height: "calc(100% - 50px)" }}>
                 <div style={{ width: "75%", height: "100%" }}>
                     <ActiveChatMessages activeConversation={activeConversation} messages={messages} />
