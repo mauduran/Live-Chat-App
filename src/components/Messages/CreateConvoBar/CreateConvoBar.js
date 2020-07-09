@@ -41,11 +41,11 @@ class CreateConvoBar extends Component {
             </div>
             <div>
             <ul id="myUL">
-                <li><CreateConversation/></li>
+                <li><CreateConversation inputText = {this.state.inputText}/></li>
             </ul>
             </div>
             </div>
         )
     }
 }
-export default CreateConvoBar;
+export default withRouter(CreateConvoBar);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component }from 'react';
 import CreateConvoProfile from '../CreateConvoProfile/CreateConvoProfile';
 import { withRouter } from 'react-router-dom';
 import './CreateConversation.css';
@@ -60,16 +60,22 @@ const users = [
     },
 ]
 
-function CreateConversation() {
+class CreateConversation extends Component{
+    render(){
+        console.log(this.props.inputText);
+        const inputText = this.props.inputText;
     return (
         <div id="CreateConversation">
             {
                 users
-                //The state should be here not in the create convo bar so we can acces the text and filter though 
+                    .filter(user => user.name.toLowerCase().includes(inputText))
                     .map(user => <CreateConvoProfile key={user.userId} user={user} />)
             }
         </div>
-    )  
+            )  
+         }
 }
 
 export default withRouter(CreateConversation)
+
+// .filter(user => user.name.toLowerCase().includes(input)

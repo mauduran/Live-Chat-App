@@ -68,8 +68,8 @@ function UserSearch({ match }) {
             <BackButton/>
             {
                 users
-                    // .filter(user => user.name.toLowerCase().includes(input)
-                    //     || user.userName.toLowerCase().includes(input))
+                    .filter(user => user.name.toLowerCase().includes(input)
+                        || user.userName.toLowerCase().includes(input))
                     .map(user => <UserResultCard key={user.userId}  user={user} />)
             }
         </div>

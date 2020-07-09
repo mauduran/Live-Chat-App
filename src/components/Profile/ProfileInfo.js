@@ -1,6 +1,5 @@
 import React from 'react';
 import { Form, FormGroup,Container, Row, Col, Button } from 'reactstrap';
-import { withRouter } from 'react-router-dom';
 import BackButton from '../BackButton/BackButton';
 
 function ProfileInfo ({ user }) {
