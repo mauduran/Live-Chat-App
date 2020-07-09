@@ -1,11 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './CreateConvoBar.css';
 import { Input } from 'reactstrap';
+import { withRouter } from 'react-router-dom'
+import CreateConversation from '../CreateConversation/CreateConversation'
 
-export default function CreateConvoBar() {
-    return (
-        <div id="CreateConvoBar" style={{ width: '100%', height: '50px', backgroundColor: '#f8f8f8', borderBottom: '1px solid #383838' }} >
-            To: <Input type="text" name="ConvoBar" id="ConvoBar" placeholder="Search for users" />       
-        </div>
-    )
+class CreateConvoBar extends Component {
+    
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            inputText: ''
+        }
+
+        this.handleOnKeyPress = this.handleOnKeyPress.bind(this);
+        this.handleOnChange = this.handleOnChange.bind(this);
+    }
+    
+
+    handleOnKeyPress() { 
+        console.log('pressed')
+    }
+
+    handleOnChange(event){
+        console.log(this.state.inputText);
+        this.setState({
+            inputText: event.target.value
+        })
+    }
+
+
+    render(){
+        return (
+            <div>
+                <div id="CreateConvoBar">
+                <p id='Tag'>
+                    To:
+                </p>
+                <Input type="text" name="CreateConvo" id="CreateConvo" placeholder="Search for users" onChange={this.handleOnChange} />
+            </div>
+            <div>
+            <ul id="myUL">
+                <li><CreateConversation/></li>
+            </ul>
+            </div>
+            </div>
+        )
+    }
 }
+export default CreateConvoBar;

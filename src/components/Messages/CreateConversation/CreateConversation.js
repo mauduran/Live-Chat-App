@@ -1,7 +1,7 @@
 import React from 'react';
-import ProfileInfo from '../../components/Profile/ProfileInfo'
+import CreateConvoProfile from '../CreateConvoProfile/CreateConvoProfile';
 import { withRouter } from 'react-router-dom';
-import './Profile.css';
+import './CreateConversation.css';
 
 const users = [
     {
@@ -11,7 +11,7 @@ const users = [
         userName: "iamjohn",
         location: "Guadalajara, Jal",
         joined: new Date('10/21/2015'),
-        status: "Meaningful Quote goes here"
+        status: "Meaningful Quote goes here" 
     },
     {
         userId: 2,
@@ -22,7 +22,7 @@ const users = [
         joined: new Date('06/14/2018'),
         status: "Meaningful Quote goes here"
     },
-    {
+    { 
         userId: 3,
         imgUrl: "https://docs.atlassian.com/aui/5.2-m6/docs/img/user-avatar-blue-96@2x.png",
         name: "Juan Pablo Ramos",
@@ -43,7 +43,7 @@ const users = [
     {
         userId: 5,
         imgUrl: "https://docs.atlassian.com/aui/5.2-m6/docs/img/user-avatar-blue-96@2x.png",
-        name: "Marcelo Londra",
+        name: "Marcelo Londra", 
         userName: "marselop",
         location: "Guadalajara, Jal",
         joined: new Date('09/14/2016'),
@@ -60,18 +60,16 @@ const users = [
     },
 ]
 
-function Profile({ match }) {
-    const input = (match.params.id)? match.params.id: "";
-    const inputInt = parseInt(input);
+function CreateConversation() {
     return (
-        <div id="Profile">
+        <div id="CreateConversation">
             {
                 users
-                    .filter(user => user.userId === inputInt)
-                    .map(user => <ProfileInfo key={user.userId} user={user} />)
+                //The state should be here not in the create convo bar so we can acces the text and filter though 
+                    .map(user => <CreateConvoProfile key={user.userId} user={user} />)
             }
         </div>
-    ) 
+    )  
 }
- 
-export default withRouter(Profile);
+
+export default withRouter(CreateConversation)

@@ -21,7 +21,7 @@ function ProfileInfo ({ user }) {
                             <h3>@{user.userName}</h3>
                             <h3>{user.status}</h3> 
                             <h3>{user.location}</h3>
-                            <h3>Joined June 23rd, 2020</h3>
+                            <h3>Joined June 23rd, 2020</h3> 
                             <hr/>
                         </FormGroup> 
                     </Col>
@@ -36,4 +36,5 @@ function ProfileInfo ({ user }) {
     )
 }
 
-export default withRouter(ProfileInfo);
+// export default withRouter(ProfileInfo);
+export default ProfileInfo;
