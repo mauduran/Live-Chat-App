@@ -12,9 +12,11 @@ export default function ActiveChatInfo({ activeConversation }) {
     }, [activeConversation]);
 
     const changeConversationTitle = () => {
-        setconversationTitle(newConversationTitle);
-        console.log('Updating conversation title to ' + newConversationTitle);
-        setnewConversationTitle('');
+        if(newConversationTitle){
+            setconversationTitle(newConversationTitle);
+            console.log('Updating conversation title to ' + newConversationTitle);
+            setnewConversationTitle('');
+        }
     }
 
     return (
