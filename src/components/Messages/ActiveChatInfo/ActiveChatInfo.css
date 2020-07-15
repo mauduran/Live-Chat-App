@@ -1,0 +1,73 @@
+#member-list {
+    height: 80%;
+    overflow: scroll;
+    list-style: none;
+    padding: 0;
+}
+
+#member-list li {
+    padding-left: 15px;
+}
+
+#chat-info-container h1 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 26px;
+    margin-bottom: 10%;
+}
+
+#chat-info-container h2 {
+    font-weight: 800;
+    font-size: 22px;
+}
+
+.members-container {
+    height: 60%;
+}
+
+.members-container h2 {
+    height: 20%;
+}
+
+.status-container {
+    height: fit-content;
+    min-height: 80px;
+    overflow: scroll;
+    margin-bottom: 20px;
+}
+
+.last-active {
+    margin-bottom: 20px;
+}
+
+.actions-container h3 {
+    color: #383838;
+    font-size: 18px;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #787878;
+    cursor: pointer;
+    max-width: 80%;
+    margin: 15px auto;
+}
+
+#chat-info-container input[type="text"] {
+    border: none;
+    background-color: #f8f8f8;
+    text-align: center;
+    font-weight: 400;
+    font-size: 26px;
+    border-radius: 5px;
+    margin-bottom: 10%;
+    cursor: pointer;
+}
+
+#chat-info-container input[type="text"]::placeholder {
+    color: #565656;
+}
+
+#chat-info-container input[type="text"]:focus {
+    border: 1px solid #aaa;
+    outline: none;
+}
