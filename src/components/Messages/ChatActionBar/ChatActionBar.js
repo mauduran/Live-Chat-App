@@ -1,9 +1,10 @@
-import React, { Component  } from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import CreateConvoBar from '../CreateConvoBar/CreateConvoBar'
 import './ChatActionBar.css';
 
-export default class ChatActionBar extends Component{
+class ChatActionBar extends Component{
 
         constructor() {
             super();
@@ -16,7 +17,7 @@ export default class ChatActionBar extends Component{
         return (
             <div id="chatActionBar">
                 <button className='btn'>
-                    <i className="fas fa-search"></i>
+                    <i className="fas fa-search" onClick={()=><CreateConvoBar/>}></i>
                 </button>
     
                 <Input type="text" name="firstName" id="firstName" placeholder="Search for users" />
@@ -31,3 +32,5 @@ export default class ChatActionBar extends Component{
         )
     }
 }
+
+export default withRouter(ChatActionBar)

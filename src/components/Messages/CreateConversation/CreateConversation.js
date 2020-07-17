@@ -78,4 +78,3 @@ class CreateConversation extends Component{
 
 export default withRouter(CreateConversation)
 
-// .filter(user => user.name.toLowerCase().includes(input)

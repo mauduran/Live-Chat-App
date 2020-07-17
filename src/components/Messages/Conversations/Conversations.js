@@ -4,8 +4,6 @@ import ChatActionBar from '../ChatActionBar/ChatActionBar';
 import ConversationCard from '../ConversationCard/ConversationCard';
 import ActiveChat from '../ActiveChat/ActiveChat';
 
-
-
 const dummyConversations = [
     {
         conversationId: 1,

@@ -68,10 +68,14 @@ const dummyMessages = [
 
 export default function ActiveChat({ activeConversation }) {
     const [messages, setmessages] = useState(dummyMessages)
+    const [showCreateBar, showCreateBarMethod] = useState(0)//When its 1 the createBar will show, if not it will show the profileBar
     return (
         <div id='ActiveConversation' >
+            {           
+                 (showCreateBar % 2 === 0 ? <ConversationBar activeConversation={activeConversation}/>: <CreateConvoBar/>)
+            }
             {/* <ConversationBar activeConversation={activeConversation} /> */}
-            <CreateConvoBar/>
+            {/* <CreateConvoBar/> */}
             <div style={{ display: 'flex', height: "calc(100% - 50px)" }}>
                 <div style={{ width: "75%", height: "100%" }}>
                     <ActiveChatMessages activeConversation={activeConversation} messages={messages} />
@@ -82,3 +86,4 @@ export default function ActiveChat({ activeConversation }) {
         </div>
     )
 }
+

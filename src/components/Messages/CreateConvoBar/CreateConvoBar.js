@@ -13,17 +13,10 @@ class CreateConvoBar extends Component {
             inputText: ''
         }
 
-        this.handleOnKeyPress = this.handleOnKeyPress.bind(this);
         this.handleOnChange = this.handleOnChange.bind(this);
-    }
-    
-
-    handleOnKeyPress() { 
-        console.log('pressed')
     }
 
     handleOnChange(event){
-        console.log(this.state.inputText);
         this.setState({
             inputText: event.target.value
         })
