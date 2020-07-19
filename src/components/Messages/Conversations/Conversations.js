@@ -3,6 +3,7 @@ import './Conversations.css';
 import ChatActionBar from '../ChatActionBar/ChatActionBar';
 import ConversationCard from '../ConversationCard/ConversationCard';
 import ActiveChat from '../ActiveChat/ActiveChat';
+import createConvoBar from '../CreateConvoBar/CreateConvoBar';
 
 const dummyConversations = [
     {
@@ -49,18 +50,19 @@ const dummyConversations = [
 
 export default function Conversations() {
     const [activeConversation, setActiveConversation] = useState(null);
+    const [newConversation, setNewConversation] = useState(false);
 
     return (
         <div style={{ width: '100%', height: '100%', display: 'flex' }}>
             <section id='ConversationsBar'>
-                <ChatActionBar />
+                <ChatActionBar newConversation={newConversation} setNewConversation={setNewConversation}/>
                 {
                     dummyConversations.map((conversation) => <ConversationCard key={conversation.conversationId}
                         setActiveConversation={setActiveConversation} conversation={conversation} />)
                 }
             </section>
 
-            {activeConversation && <ActiveChat activeConversation={activeConversation} />}
+            {activeConversation && <ActiveChat activeConversation={activeConversation} newConversation={newConversation} setNewConversation={setNewConversation}/>}
         </div>
     )
 }

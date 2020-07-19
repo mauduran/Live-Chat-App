@@ -9,7 +9,7 @@
 }
 
 #CreateConvo{
-    margin-right: 305px;
+    margin-right: 10px;
     margin-left: 10px;
 }
 
@@ -48,4 +48,9 @@
   
   #myUL li a:hover:not(.header) {
     background-color: #eee;
+  }
+
+  #DoneBtn{
+    margin-right: 220px;
+
   }
