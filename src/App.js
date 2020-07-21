@@ -9,13 +9,17 @@ import MyProfile from './containers/MyProfile/MyProfile';
 import Profile from './containers/Profile/Profile';
 import Messages from './containers/Messages/Messages';
 
+const initialUser = {
+  username: 'mau4duran'
+}
+
 function App() {
   const [isLogged, setisLogged] = useState(false);
-
+  const [user, setuser] = useState(initialUser);
   return (
     <div className="App">
       <Router >
-        <Navigation isLogged={isLogged} setisLogged={setisLogged} />
+        <Navigation isLogged={isLogged} setisLogged={setisLogged} setuser={setuser}/>
         <div id="content">
           <Switch>
             <Route exact path="/" render={() => <Home />} />
@@ -23,7 +27,7 @@ function App() {
             <Route path="/myprofile" render={()=><MyProfile/>} />
             <Route path="/profile/:id" render={()=><Profile/>} />
             <Route path="/search/:searchQuery" render={() => <UserSearch />} />
-            <Route path="/messages" render={() => <Messages />} />
+            <Route path="/messages" render={() => <Messages user={user}/>} />
           </Switch>
         </div>
       </Router>

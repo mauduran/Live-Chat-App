@@ -49,20 +49,21 @@ const dummyConversations = [
     }
 ]
 
-export default function Conversations() {
+export default function Conversations({ user }) {
     const [activeConversation, setActiveConversation] = useState(null);
+    const [searchConversationInput, setsearchConversationInput] = useState('');
 
     return (
         <div style={{ width: '100%', height: '100%', display: 'flex' }}>
             <section id='ConversationsBar'>
-                <ChatActionBar />
+                <ChatActionBar searchConversationInput={searchConversationInput} setsearchConversationInput={setsearchConversationInput} />
                 {
-                    dummyConversations.map((conversation) => <ConversationCard key={conversation.conversationId}
-                        setActiveConversation={setActiveConversation} conversation={conversation} />)
+                    dummyConversations.filter(el => el.title.includes(searchConversationInput) || el.members.find(a => a.includes(searchConversationInput))).map((conversation) => <ConversationCard key={conversation.conversationId}
+                        setActiveConversation={setActiveConversation} conversation={conversation} user={user} />)
                 }
             </section>
 
-            {activeConversation && <ActiveChat activeConversation={activeConversation} />}
+            {activeConversation && <ActiveChat activeConversation={activeConversation} user={user} />}
         </div>
     )
 }

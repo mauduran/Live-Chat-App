@@ -6,7 +6,7 @@ import Logo from '../../assets/img/small_talk.png'
 import './Navigation.css';
 import SettingsButton from './SettingsButton';
 
-function Navigation({ isLogged, setisLogged, history }) {
+function Navigation({ isLogged, setisLogged, history, setuser }) {
     const [searchInput, setsearchInput] = useState("");
 
 
@@ -34,7 +34,7 @@ function Navigation({ isLogged, setisLogged, history }) {
 
                         <div className="nav-links-container">
                             <NavLink to="/messages" className="navLink">
-                                <span><i className="fas fa-comment-alt"></i></span>
+                                <span onClick={()=>setuser({username: 'jprr44'})}><i className="fas fa-comment-alt"></i></span>
                             </NavLink>
 
                             <SettingsButton setisLogged={setisLogged}/>

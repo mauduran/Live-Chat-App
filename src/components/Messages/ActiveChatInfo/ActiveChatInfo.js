@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ActiveChatInfo.css';
 
-export default function ActiveChatInfo({ activeConversation }) {
+export default function ActiveChatInfo({ activeConversation, user }) {
 
     const [newConversationTitle, setnewConversationTitle] = useState('');
 
@@ -31,7 +31,7 @@ export default function ActiveChatInfo({ activeConversation }) {
                     <div className='members-container'>
                         <h2>Members</h2>
                         <ul id="member-list">
-                            {activeConversation.members.filter(el => el !== 'mau4duran').map((el, i) => <li key={i}>{el}</li>)}
+                            {activeConversation.members.filter(el => el !== user.username).map((el, i) => <li key={i}>{el}</li>)}
                         </ul>
                     </div>
 
@@ -42,7 +42,7 @@ export default function ActiveChatInfo({ activeConversation }) {
                 </>) :
                 (
                     <>
-                        <h1>{activeConversation.members.filter(el => el !== 'mau4duran')}</h1>
+                        <h1>{activeConversation.members.filter(el => el !== user.username)}</h1>
 
                         <p className='last-active'>Last Active. 16:45</p>
 
