@@ -31,7 +31,7 @@ export default function ActiveChatInfo({ activeConversation, user }) {
                     <div className='members-container'>
                         <h2>Members</h2>
                         <ul id="member-list">
-                            {activeConversation.members.filter(el => el !== user.username).map((el, i) => <li key={i}>{el}</li>)}
+                            {activeConversation.members.map((el, i) => <li key={i}>{el}</li>)}
                         </ul>
                     </div>
 
