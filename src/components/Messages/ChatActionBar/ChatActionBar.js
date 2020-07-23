@@ -18,7 +18,6 @@ function ChatActionBar({ newConversation, setNewConversation}){
                 sender: "JuanRamos"
             }
         }
-        console.log(newConvo);
     }
 
         return (
