@@ -34,7 +34,7 @@ function Navigation({ isLogged, setisLogged, history, setuser }) {
 
                         <div className="nav-links-container">
                             <NavLink to="/messages" className="navLink">
-                                <span onClick={()=>setuser({username: 'jprr44'})}><i className="fas fa-comment-alt"></i></span>
+                                <span onClick={()=>setuser({username: 'mau4duran'})}><i className="fas fa-comment-alt"></i></span>
                             </NavLink>
 
                             <SettingsButton setisLogged={setisLogged}/>
