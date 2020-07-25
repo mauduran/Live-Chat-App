@@ -62,7 +62,7 @@ const users = [
 
 class CreateConversation extends Component{
     render(){
-        console.log(this.props.inputText);
+        // console.log(this.props.inputText);
         const inputText = this.props.inputText;
     return (
         <div id="CreateConversation">

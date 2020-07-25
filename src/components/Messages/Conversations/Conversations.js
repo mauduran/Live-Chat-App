@@ -51,6 +51,20 @@ const dummyConversations = [
 export default function Conversations() {
     const [activeConversation, setActiveConversation] = useState(null);
     const [newConversation, setNewConversation] = useState(false);
+    const [doneConversation, setDoneConversation] = useState(false);
+
+    if(newConversation === true){
+        let newConvo = {
+            conversationId: 5,
+            title: '',
+            members: ['mau4duran', 'JuanRamos'],
+            lastMessage: {
+                body: "TestCreateConvo",
+                date: new Date(2020, 7, 5, 19, 40, 0),
+                sender: "JuanRamos"
+            }
+        }
+    }
 
     return (
         <div style={{ width: '100%', height: '100%', display: 'flex' }}>
@@ -61,8 +75,16 @@ export default function Conversations() {
                         setActiveConversation={setActiveConversation} conversation={conversation} />)
                 }
             </section>
+            {((newConversation === false) ? 
 
-            {activeConversation && <ActiveChat activeConversation={activeConversation} newConversation={newConversation} setNewConversation={setNewConversation}/>}
+            activeConversation && <ActiveChat activeConversation={activeConversation} newConversation={newConversation} setNewConversation={setNewConversation}
+            setDoneConversation={setDoneConversation} doneConversation={doneConversation}/>
+            :
+            activeConversation && <ActiveChat activeConversation={activeConversation} newConversation={newConversation} setNewConversation={setNewConversation}
+            setDoneConversation={setDoneConversation} doneConversation={doneConversation}/>)}
+        
+            {/* {activeConversation && <ActiveChat activeConversation={activeConversation} newConversation={newConversation} 
+            setNewConversation={setNewConversation} setDoneConversation={setDoneConversation} doneConversation={doneConversation}/>} */}
         </div>
     )
 }

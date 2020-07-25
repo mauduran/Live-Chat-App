@@ -82,7 +82,7 @@ const dummyMessages = [
 
 
 
-export default function ActiveChat({ activeConversation, newConversation, setNewConversation }) {
+export default function ActiveChat({ activeConversation, newConversation, setNewConversation, setDoneConversation, doneConversation }) {
     const [messages, setmessages] = useState(dummyMessages)
     return (
         <div id='ActiveConversation' >
@@ -92,7 +92,8 @@ export default function ActiveChat({ activeConversation, newConversation, setNew
             
             <div style={{ display: 'flex', height: "calc(100% - 50px)" }}>
                 <div style={{ width: "75%", height: "100%" }}>
-                <CreateConvoBar newConversation={newConversation} setNewConversation={setNewConversation}/>
+                <CreateConvoBar newConversation={newConversation} setNewConversation={setNewConversation}
+                doneConversation={doneConversation} setDoneConversation={setDoneConversation}/>
 
                 </div>
                 <ActiveChatInfo activeConversation={activeConversation}  />

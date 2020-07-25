@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 import CreateConversation from '../CreateConversation/CreateConversation'
 
 
-function CreateConvoBar({newConversation, setNewConversation}) {
+function CreateConvoBar({newConversation, setNewConversation, doneConversation, setDoneConversation}) {
         const [inputText, setinputText] = useState('');
 
        function handleOnChange(event){
@@ -14,8 +14,8 @@ function CreateConvoBar({newConversation, setNewConversation}) {
                 }
 
         function handleOnclick(event){
-            setNewConversation(newConversation = !newConversation);
-            console.log(newConversation);
+            setNewConversation(newConversation =! newConversation);
+            setDoneConversation(doneConversation =! doneConversation);
         }
         return (
             <div>
