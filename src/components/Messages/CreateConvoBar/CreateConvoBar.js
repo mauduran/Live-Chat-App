@@ -14,8 +14,10 @@ function CreateConvoBar({newConversation, setNewConversation, doneConversation, 
                 }
 
         function handleOnclick(event){
-            setNewConversation(newConversation =! newConversation);
+            // setNewConversation(newConversation =! newConversation);
             setDoneConversation(doneConversation =! doneConversation);
+            console.log('New conversation is: '+newConversation);
+            console.log('Done conversation is: '+doneConversation);
         }
         return (
             <div>

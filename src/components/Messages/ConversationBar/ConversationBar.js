@@ -1,11 +1,11 @@
 import React from 'react';
 import './ConversationBar.css';
 
-export default function ConversationBar({ activeConversation, newConversation}) {
+export default function ConversationBar({ activeConversation, newConversation, doneConversation}) {
     return (
 
        <div>
-           {newConversation === true? null 
+           {doneConversation === true? null 
            
            :
             

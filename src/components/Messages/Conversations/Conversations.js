@@ -53,8 +53,7 @@ export default function Conversations() {
     const [newConversation, setNewConversation] = useState(false);
     const [doneConversation, setDoneConversation] = useState(false);
 
-    if(newConversation === true){
-        let newConvo = {
+        let newDummy = {
             conversationId: 5,
             title: '',
             members: ['mau4duran', 'JuanRamos'],
@@ -64,24 +63,19 @@ export default function Conversations() {
                 sender: "JuanRamos"
             }
         }
-    }
 
     return (
         <div style={{ width: '100%', height: '100%', display: 'flex' }}>
             <section id='ConversationsBar'>
-                <ChatActionBar newConversation={newConversation} setNewConversation={setNewConversation}/>
+                <ChatActionBar newConversation={newConversation} setNewConversation={setNewConversation} doneConversation={doneConversation} setDoneConversation={setDoneConversation}/>
                 {
                     dummyConversations.map((conversation) => <ConversationCard key={conversation.conversationId}
                         setActiveConversation={setActiveConversation} conversation={conversation} />)
                 }
             </section>
-            {((newConversation === false) ? 
-
-            activeConversation && <ActiveChat activeConversation={activeConversation} newConversation={newConversation} setNewConversation={setNewConversation}
-            setDoneConversation={setDoneConversation} doneConversation={doneConversation}/>
-            :
-            activeConversation && <ActiveChat activeConversation={activeConversation} newConversation={newConversation} setNewConversation={setNewConversation}
-            setDoneConversation={setDoneConversation} doneConversation={doneConversation}/>)}
+           
+            {activeConversation && <ActiveChat activeConversation={activeConversation} newConversation={newConversation} setNewConversation={setNewConversation}
+            setDoneConversation={setDoneConversation} newDummy={newDummy} doneConversation={doneConversation} />}
         
             {/* {activeConversation && <ActiveChat activeConversation={activeConversation} newConversation={newConversation} 
             setNewConversation={setNewConversation} setDoneConversation={setDoneConversation} doneConversation={doneConversation}/>} */}

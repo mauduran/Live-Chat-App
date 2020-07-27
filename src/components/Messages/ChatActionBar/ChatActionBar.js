@@ -4,20 +4,11 @@ import { Input } from 'reactstrap';
 import CreateConvoBar from '../CreateConvoBar/CreateConvoBar'
 import './ChatActionBar.css';
 
-function ChatActionBar({ newConversation, setNewConversation}){
+function ChatActionBar({ newConversation, setNewConversation, doneConversation, setDoneConversation}){
 
     function handleOnclick(e) {
         setNewConversation(newConversation = !newConversation)
-        let newConvo = {
-            conversationId: 5,
-            title: '',
-            members: ['mau4duran', 'JuanRamos'],
-            lastMessage: {
-                body: "TestCreateConvo",
-                date: new Date(2020, 7, 5, 19, 40, 0),
-                sender: "JuanRamos"
-            }
-        }
+        setDoneConversation(doneConversation = !doneConversation);
     }
 
         return (

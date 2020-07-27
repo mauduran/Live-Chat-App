@@ -82,13 +82,15 @@ const dummyMessages = [
 
 
 
-export default function ActiveChat({ activeConversation, newConversation, setNewConversation, setDoneConversation, doneConversation }) {
+export default function ActiveChat({ activeConversation, newConversation, setNewConversation, setDoneConversation, doneConversation, newDummy }) {
     const [messages, setmessages] = useState(dummyMessages)
+    const [newMessages, setnewMessages] = useState(newDummy);
     return (
         <div id='ActiveConversation' >
             
-            <ConversationBar activeConversation={activeConversation} newConversation={newConversation} />
-            {newConversation === true ? 
+            <ConversationBar activeConversation={activeConversation} newConversation={newConversation} doneConversation={doneConversation}/>
+            
+            {doneConversation === true ? 
             
             <div style={{ display: 'flex', height: "calc(100% - 50px)" }}>
                 <div style={{ width: "75%", height: "100%" }}>
@@ -107,13 +109,8 @@ export default function ActiveChat({ activeConversation, newConversation, setNew
                     <ActiveChatInput/>
                 </div>
                 <ActiveChatInfo activeConversation={activeConversation}  />
-            </div>}
-
-            
-
-
-
-            
+            </div>
+            }
         </div>
     )
 }

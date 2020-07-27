@@ -14,7 +14,6 @@ export default function Message({ message }) {
                     {(moment().isSame(message.date, 'day')) ? moment(message.date).format('HH:mm ') : (moment().isSame(message.date, 'year')) ? moment(message.date).format('MMM DD[,] HH:mm ') : moment(message.date).format('MMM DD YYYY[,] HH:mm ')}
                 </span>
             </div>
-
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Message from '../Message/Message';
 
-export default function ActiveChatMessages({ messages, activeConversation }) {
+export default function ActiveChatMessages({ messages, activeConversation, newDummy }) {
     const messagesEndRef = useRef(null)
 
     const scrollToBottom = () => {
@@ -14,6 +14,7 @@ export default function ActiveChatMessages({ messages, activeConversation }) {
         <div style={{ width: "100%", height: 'calc(100% - 50px)', overflow: "scroll", padding: "20px", boxSizing: 'border-box' }}>
             {
                 messages.filter(el=>el.roomId===activeConversation.conversationId).map((message, id) => {
+                
                     return (
                         <Message message={message} key={id} />
                     )
