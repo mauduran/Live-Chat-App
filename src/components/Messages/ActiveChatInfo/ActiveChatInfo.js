@@ -34,7 +34,6 @@ export default function ActiveChatInfo({ activeConversation }) {
                             {activeConversation.members.filter(el => el !== 'mau4duran').map((el, i) => <li key={i}>{el}</li>)}
                         </ul>
                     </div>
-
                     <div className='actions-container'>
                         <h2>Actions</h2>
                         <h3>Leave Room</h3>
@@ -43,14 +42,11 @@ export default function ActiveChatInfo({ activeConversation }) {
                 (
                     <>
                         <h1>{activeConversation.members.filter(el => el !== 'mau4duran')}</h1>
-
                         <p className='last-active'>Last Active. 16:45</p>
-
                         <div className='status-container'>
                             <h2>Status</h2>
                            <p>Meaningful quote goes here.</p>
                         </div>
-
                         <div className='actions-container'>
                             <h2>Actions</h2>
                             <h3>Clear Conversation</h3>

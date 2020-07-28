@@ -82,9 +82,8 @@ const dummyMessages = [
 
 
 
-export default function ActiveChat({ activeConversation, newConversation, setNewConversation, setDoneConversation, doneConversation, newDummy }) {
+export default function ActiveChat({ activeConversation, newConversation, setNewConversation, setDoneConversation, doneConversation }) {
     const [messages, setmessages] = useState(dummyMessages)
-    const [newMessages, setnewMessages] = useState(newDummy);
     return (
         <div id='ActiveConversation' >
             

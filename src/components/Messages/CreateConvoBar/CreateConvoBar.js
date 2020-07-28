@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import './CreateConvoBar.css';
 import { Input } from 'reactstrap';
 import { withRouter } from 'react-router-dom'

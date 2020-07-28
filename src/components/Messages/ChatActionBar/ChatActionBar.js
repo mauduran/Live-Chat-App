@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Input } from 'reactstrap';
-import CreateConvoBar from '../CreateConvoBar/CreateConvoBar'
 import './ChatActionBar.css';
 
 function ChatActionBar({ newConversation, setNewConversation, doneConversation, setDoneConversation}){
