@@ -1,77 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProfileInfo from '../../components/Profile/ProfileInfo'
 import { withRouter } from 'react-router-dom';
 import './Profile.css';
 
-const users = [
-    {
-        userId: 1,
-        imgUrl: "https://docs.atlassian.com/aui/5.2-m6/docs/img/user-avatar-blue-96@2x.png",
-        name: "John Doe",
-        userName: "iamjohn",
-        location: "Guadalajara, Jal",
-        joined: new Date('10/21/2015'),
-        status: "Meaningful Quote goes here"
-    },
-    {
-        userId: 2,
-        imgUrl: "https://docs.atlassian.com/aui/5.2-m6/docs/img/user-avatar-blue-96@2x.png",
-        name: "Mauricio Duran",
-        userName: "mau4duran",
-        location: "San Luis Potosí, SLP",
-        joined: new Date('06/14/2018'),
-        status: "Meaningful Quote goes here"
-    },
-    {
-        userId: 3,
-        imgUrl: "https://docs.atlassian.com/aui/5.2-m6/docs/img/user-avatar-blue-96@2x.png",
-        name: "Juan Pablo Ramos",
-        userName: "jprr44",
-        location: "Guadalajara, Jal",
-        joined: new Date('08/31/2020'),
-        status: "I like big dicks"
-    },
-    {
-        userId: 4,
-        imgUrl: "https://docs.atlassian.com/aui/5.2-m6/docs/img/user-avatar-blue-96@2x.png",
-        name: "José Francisco González",
-        userName: "jsfran",
-        location: "Guadalajara, Jal",
-        joined: new Date('09/14/2016'),
-        status: "Lorem ipsun dolor immet"
-    },
-    {
-        userId: 5,
-        imgUrl: "https://docs.atlassian.com/aui/5.2-m6/docs/img/user-avatar-blue-96@2x.png",
-        name: "Marcelo Londra",
-        userName: "marselop",
-        location: "Guadalajara, Jal",
-        joined: new Date('09/14/2016'),
-        status: "Lorem ipsun dolor immet"
-    },
-    {
-        userId: 6,
-        imgUrl: "https://docs.atlassian.com/aui/5.2-m6/docs/img/user-avatar-blue-96@2x.png",
-        name: "Marco Galina",
-        userName: "marko",
-        location: "Guadalajara, Jal",
-        joined: new Date('09/14/2016'),
-        status: "Lorem ipsun dolor immet"
-    },
-]
 
 function Profile({ match }) {
-    const input = (match.params.id)? match.params.id: "";
-    const inputInt = parseInt(input);
+    const [userProfileData, setuserProfileData] = useState(null);
+
+    useEffect(() => {
+        if (!match.params.id) return;
+        fetch(`http://localhost:3001/users/${match.params.id}`)
+            .then(res => res.json())
+            .then(userProfile => setuserProfileData(userProfile))
+            .catch(console.log);
+    }, [match.params.id])
+
+
     return (
         <div id="Profile">
             {
-                users
-                    .filter(user => user.userId === inputInt)
-                    .map(user => <ProfileInfo key={user.userId} user={user} />)
+                (userProfileData)? < ProfileInfo user={userProfileData}/> : <h1 style={{textAlign: "center", marginTop: "5%"}}>User not found...</h1>
             }
         </div>
-    ) 
+    )
 }
- 
+
 export default withRouter(Profile);
