@@ -6,11 +6,11 @@ import { Button } from 'reactstrap';
 import CreateConversation from '../CreateConversation/CreateConversation'
 
 
-function CreateConvoBar({newConversation, setNewConversation, setActiveConversation, user}) {
+function CreateConvoBar({newConversation, setNewConversation, setActiveConversation, user, setconversationUpdate}) {
         const [inputText, setinputText] = useState('');
         const [members, setmembers] = useState([]);
 
-        const listMembers = members.map(member =>(<li className="listMembers" key={member.name}>{member.name}</li>))
+        const listMembers = members.map(member =>(<li className="listMembers" key={member}>@{member}</li>))
 
        function handleOnChange(event){
                    setinputText(event.target.value);
@@ -32,7 +32,8 @@ function CreateConvoBar({newConversation, setNewConversation, setActiveConversat
                 .then(res => res.json())
                 .then(conversation => {
                     setActiveConversation(conversation);
-                    setmembers([]);
+                    setconversationUpdate(true);
+                    setNewConversation(false);
                 })
                 .catch(console.log);
         }
