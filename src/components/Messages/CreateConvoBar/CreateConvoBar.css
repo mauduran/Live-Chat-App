@@ -6,12 +6,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding:0 5px 0 0;
 }
 
-#CreateConvo{
+.CreateConvo{
     margin-right: 10px;
-    margin-left: 10px;
+    margin-left: 10px; 
+    width: 100%;
 }
+
+
 
 #Tag{
     margin-left: 10px;
@@ -50,7 +54,16 @@
     background-color: #eee;
   }
 
-  #DoneBtn{
-    margin-right: 153px;
-
+  .listMembers{
+    display: inline;
+    background-color: rgb(80, 141, 190);
+    margin-left: 5px;
+    border-radius: 5%;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+  }
+  .divMembers{
+    margin-left: 35px;
+    padding: 5px;
   }

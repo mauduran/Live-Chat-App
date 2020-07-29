@@ -35,7 +35,7 @@ export default function ActiveChatInput({ activeConversation, socket }) {
                 onKeyUp={handleSendMessage}
             />
 
-            <Button onClick={sendMessage} style={{ width: "50px", marginLeft: '-50px' }}><i className="fas fa-paper-plane"></i></Button>
+            <Button onClick={sendMessage} color="primary" style={{ width: "50px", marginLeft: '-50px' }}><i className="fas fa-paper-plane"></i></Button>
         </div>
     )
 }

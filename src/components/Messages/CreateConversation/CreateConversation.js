@@ -1,4 +1,4 @@
-import React, { Component }from 'react';
+import React from 'react';
 import CreateConvoProfile from '../CreateConvoProfile/CreateConvoProfile';
 import { withRouter } from 'react-router-dom';
 import './CreateConversation.css';
@@ -60,21 +60,21 @@ const users = [
     },
 ]
 
-class CreateConversation extends Component{
-    render(){
-        // console.log(this.props.inputText);
-        const inputText = this.props.inputText;
+function CreateConversation({inputText, members, setmembers}){
     return (
         <div id="CreateConversation">
             {
                 users
-                    .filter(user => user.name.toLowerCase().includes(inputText))
-                    .map(user => <CreateConvoProfile key={user.userId} user={user} />)
+                    .filter(user => (!members.map(member => member.name.toLowerCase()).includes(user.name.toLowerCase()) ||
+                                     !members.map(member => member.userName.toLowerCase()).includes(user.userName.toLowerCase()))
+                                     && 
+                                     (user.name.toLowerCase().includes(inputText.toLowerCase()) || user.userName.toLowerCase().includes(inputText.toLowerCase()))
+                    )
+                    .map(user => <CreateConvoProfile setmembers={setmembers} key={user.userId} user={user} members={members}/>)
             }
         </div>
             )  
-         }
-}
+    }
 
 export default withRouter(CreateConversation)
 

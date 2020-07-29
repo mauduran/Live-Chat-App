@@ -6,33 +6,54 @@ import { Button } from 'reactstrap';
 import CreateConversation from '../CreateConversation/CreateConversation'
 
 
-function CreateConvoBar({newConversation, setNewConversation, doneConversation, setDoneConversation}) {
+function CreateConvoBar({newConversation, setNewConversation, setActiveConversation}) {
         const [inputText, setinputText] = useState('');
+        const [members, setmembers] = useState([]);
+
+        const listMembers = members.map(member =>(<li className="listMembers" key={member.name}>{member.name}</li>))
 
        function handleOnChange(event){
                    setinputText(event.target.value);
                 }
-
         function handleOnclick(event){
-            // setNewConversation(newConversation =! newConversation);
-            setDoneConversation(doneConversation =! doneConversation);
-            console.log('New conversation is: '+newConversation);
-            console.log('Done conversation is: '+doneConversation);
+            if(!members) return
+            const newConversation ={
+                title: '',
+                members: members,
+            }
+            fetch('http://localhost:3001/conversations',
+                {
+                    method:'post',
+                    headers: {
+                            'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newConversation)
+                } )
+                .then(res => res.json())
+                .then(conversation => {
+                    setActiveConversation(conversation);
+                    setmembers([]);
+                })
+                .catch(console.log);
         }
+        
         return (
             <div>
                 <div id="CreateConvoBar">
-                <p id='Tag'>
-                    To:
-                </p>
-                <Input type="text" name="CreateConvo" id="CreateConvo" placeholder="Search for users" onChange={handleOnChange} />
-                <Button onClick={handleOnclick} id='DoneBtn' color="primary">Done</Button>
-            </div>
-            <div>
-            <ul id="myUL">
-                <li><CreateConversation inputText={inputText}/></li>
-            </ul>
-            </div>
+                    <p id='Tag'>
+                        To:
+                    </p>
+                    <Input type="text" name="CreateConvo" className="CreateConvo" placeholder="Search for users" onChange={handleOnChange} />
+                    <Button className ='DoneBtn' onClick={handleOnclick} color="primary">Done</Button>
+                </div>
+                    <div className="divMembers">                    
+                        {listMembers}
+                    </div>
+                <div>
+                    <ul id="myUL">
+                        <li><CreateConversation inputText={inputText} members={members} setmembers={setmembers}/></li>
+                    </ul>
+                </div>
             </div>
         )
     }

@@ -3,10 +3,15 @@
     overflow: scroll;
     list-style: none;
     padding: 0;
+    border:0px;
 }
 
 #member-list li {
     padding-left: 15px;
+}
+
+#chat-info-container{
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 #chat-info-container h1 {

@@ -1,15 +1,22 @@
-#Name{
-    border: 1px solid #ddd;
+.Name{
     margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6;
-    padding: 12px;
     text-decoration: none;
     font-size: 18px;
     color: black;
-    display: block;
+    display: inline-block;
+    padding-right: 15px;
   }
 
-  #ConversationProfile{
-    width: 70%;
+  .ConversationProfile{
+    width: 90%;
     margin-left: 42px;
+    padding: 12px;
+    background-color: #f6f6f6;
+    border: 1px solid #ddd;
   }
+
+.userName{
+  display: inline-block;
+  font-size: 15px;
+  opacity: 0.6;
+}

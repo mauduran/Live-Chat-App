@@ -7,7 +7,7 @@ export default function ConversationCard({ conversation, setActiveConversation, 
         <div className='conversation-card' onClick={()=>setActiveConversation(conversation)}>
             <img src='https://www.w3schools.com/howto/img_avatar.png' alt='profileImg' />
             <div className='conversation-detail'>
-                <p style={{ fontSize: '12px', margin: 0 }}>
+                <p style={{ fontSize: '12px', margin: 0, fontWeight:"bold"}}>
                     {(conversation.title) ? conversation.title : conversation.members.filter(member => member !== user.username).slice(0, 2).join(', ')
                         + ((conversation.members.length > 3) ? '...' : '')}
                 </p>
