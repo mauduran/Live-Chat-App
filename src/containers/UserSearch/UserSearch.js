@@ -17,7 +17,6 @@ function UserSearch({ match }) {
 
     }, [match.params.searchQuery])
 
-    const input = (match.params.searchQuery) ? match.params.searchQuery.toLowerCase() : "";
     return (
         <div className="userResultsContainer">
             <BackButton />
