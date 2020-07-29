@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './styles/App.css';
 import Navigation from './components/Navigation/Navigation';
@@ -8,14 +8,43 @@ import UserSearch from './containers/UserSearch/UserSearch';
 import MyProfile from './containers/MyProfile/MyProfile';
 import Profile from './containers/Profile/Profile';
 import Messages from './containers/Messages/Messages';
+import io from 'socket.io-client';
+
+const initialUser = {
+  username: 'jprr44'
+}
+
+
 
 function App() {
   const [isLogged, setisLogged] = useState(false);
+  const [user, setuser] = useState(initialUser);
+  const [socket, setsocket] = useState();
+
+  useEffect(() => {
+    setsocket(io('localhost:3001'));
+  }, [])
+
+useEffect(() => {
+  if(socket){
+    socket.on('incomingMessage', (msg)=>{
+      console.log(msg);
+    })
+    return () => {
+      socket.disconnect();
+    }
+  }
+
+}, [socket]);
+
+useEffect(() => {
+  if(user && socket) socket.emit('login', user);
+}, [user, socket])
 
   return (
     <div className="App">
       <Router >
-        <Navigation isLogged={isLogged} setisLogged={setisLogged} />
+        <Navigation isLogged={isLogged} setisLogged={setisLogged} setuser={setuser}/>
         <div id="content">
           <Switch>
             <Route exact path="/" render={() => <Home />} />
@@ -23,7 +52,7 @@ function App() {
             <Route path="/myprofile" render={()=><MyProfile/>} />
             <Route path="/profile/:id" render={()=><Profile/>} />
             <Route path="/search/:searchQuery" render={() => <UserSearch />} />
-            <Route path="/messages" render={() => <Messages />} />
+            <Route path="/messages" render={() => <Messages user={user} socket={socket}/>} />
           </Switch>
         </div>
       </Router>

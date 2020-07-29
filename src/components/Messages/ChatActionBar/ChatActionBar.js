@@ -3,11 +3,10 @@ import { withRouter } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import './ChatActionBar.css';
 
-function ChatActionBar({ newConversation, setNewConversation, doneConversation, setDoneConversation}){
+function ChatActionBar({ newConversation, setNewConversation}){
 
     function handleOnclick(e) {
-        setNewConversation(newConversation = !newConversation)
-        setDoneConversation(doneConversation = !doneConversation);
+        setNewConversation(newConversation => !newConversation)
     }
 
         return (

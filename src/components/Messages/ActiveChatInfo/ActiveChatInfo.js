@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ActiveChatInfo.css';
 
-export default function ActiveChatInfo({ activeConversation }) {
+export default function ActiveChatInfo({ activeConversation, user }) {
 
     const [newConversationTitle, setnewConversationTitle] = useState('');
 
@@ -27,30 +27,34 @@ export default function ActiveChatInfo({ activeConversation }) {
 
             {(activeConversation.members.length > 2) ? (
                 <>
-                    <input onBlur={changeConversationTitle} onChange={(e)=>setnewConversationTitle(e.target.value)} type="text" value={newConversationTitle} placeholder={conversationTitle}/>
+                    <input onBlur={changeConversationTitle} onChange={(e)=>setnewConversationTitle(e.target.value)} type="text" value={newConversationTitle} placeholder={conversationTitle} style={{fontWeight:"bold"}}/>
                     <div className='members-container'>
-                        <h2>Members</h2>
+                        <h3>Members</h3>
                         <ul id="member-list">
-                            {activeConversation.members.filter(el => el !== 'mau4duran').map((el, i) => <li key={i}>{el}</li>)}
+                            {activeConversation.members.map((el, i) => <li key={i}>{el}</li>)}
                         </ul>
                     </div>
                     <div className='actions-container'>
-                        <h2>Actions</h2>
-                        <h3>Leave Room</h3>
+                    <br/>
+                    <br/>
+                        <h2 style={{textAlign:"center"}}>Actions</h2>
+                        <h3 style={{color:"white", backgroundColor:"#ff6666", border:"solid white", borderRadius:"10px"}}>Leave Room</h3>
                     </div>
                 </>) :
                 (
                     <>
-                        <h1>{activeConversation.members.filter(el => el !== 'mau4duran')}</h1>
+                        <h1>{activeConversation.members.filter(el => el !== user.username)}</h1>
+
                         <p className='last-active'>Last Active. 16:45</p>
-                        <div className='status-container'>
+                        <div className='status-container' style={{overflow:"hidden"}}>
                             <h2>Status</h2>
                            <p>Meaningful quote goes here.</p>
                         </div>
                         <div className='actions-container'>
-                            <h2>Actions</h2>
-                            <h3>Clear Conversation</h3>
-                            <h3>Block User</h3>
+                            <br/>
+                            <h2 style={{textAlign:"center"}}>Actions</h2>
+                            <h3 style={{color:"white", backgroundColor:"#8E8C8C", border:"solid white", borderRadius:"10px"}}>Clear Conversation</h3>
+                            <h3 style={{color:"white", backgroundColor:"#ff6666", border:"solid white", borderRadius:"10px"}}>Block User</h3>
                         </div>
                     </>
                 )

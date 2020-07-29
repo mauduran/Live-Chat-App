@@ -1,88 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Conversations.css';
 import ChatActionBar from '../ChatActionBar/ChatActionBar';
 import ConversationCard from '../ConversationCard/ConversationCard';
 import ActiveChat from '../ActiveChat/ActiveChat';
+        
+export default function Conversations({ user, socket }) {
 
-const dummyConversations = [
-    {
-        conversationId: 1,
-        title: '',
-        members: ['mau4duran', 'jprr44'],
-        lastMessage: {
-            body: "Hola, cómo estás?",
-            date: new Date(2020, 6, 5, 12, 24, 0),
-            sender: "mau4duran"
-        }
-    },
-    {
-        conversationId: 2,
-        title: 'las señoras',
-        members: ['mau4duran', 'jprr44', 'jsfran'],
-        lastMessage: {
-            body: "cuándo llamada? lorem ipsun dolot emmet rjvehue eofhwehoifhew eofhwhfwi",
-            date: new Date(2020, 6, 3, 18, 10, 0),
-            sender: "jprr44"
-        }
-    },
-    {
-        conversationId: 3,
-        title: '',
-        members: ['mau4duran', 'jsfran'],
-        lastMessage: {
-            body: "qué pedo",
-            date: new Date(2020, 6, 5, 10, 40, 0),
-            sender: "jsfran"
-        }
-    },
-    {
-        conversationId: 4,
-        title: '',
-        members: ['mau4duran', 'jsfran', 'elrolas', 'abc', 'dbba', 'rollo'],
-        lastMessage: {
-            body: "heyyy",
-            date: new Date(2020, 7, 5, 19, 40, 0),
-            sender: "jsfran"
-        }
-    }
-]
-
-export default function Conversations() {
     const [activeConversation, setActiveConversation] = useState(null);
+    const [searchConversationInput, setsearchConversationInput] = useState('');
+    const [conversations, setconversations] = useState([]);
     const [newConversation, setNewConversation] = useState(false);
-    const [doneConversation, setDoneConversation] = useState(false);
 
-        const newDummy = [
-                {
-                conversationId: 5,
-                title: '',
-                members: ['mau4duran', 'JuanRamos', 'JoseFran'],
-                lastMessage: {
-                    body: "Nueva Convo",
-                    date: new Date(2020, 7, 5, 19, 40, 0),
-                    sender: "mau4duran"
-                }
-            }
-        ]
+    useEffect(() => {
+        fetch(`http://localhost:3001/conversations/${user.username}`)
+            .then(res => res.json())
+            .then(convs => setconversations(convs))
+            .catch(err => console.log(err));
+    }, [user])
 
     return (
         <div style={{ width: '100%', height: '100%', display: 'flex' }}>
             <section id='ConversationsBar'>
-                <ChatActionBar newConversation={newConversation} setNewConversation={setNewConversation} doneConversation={doneConversation} setDoneConversation={setDoneConversation}/>
-                {     
-                    doneConversation === false && newConversation === true ? 
-                    
-                    newDummy.map((conversation) => <ConversationCard key={conversation.conversationId}
-                    setActiveConversation={setActiveConversation} conversation={conversation} />)
-                    : 
-                    dummyConversations.map((conversation) => <ConversationCard key={conversation.conversationId}
-                    setActiveConversation={setActiveConversation} conversation={conversation} />)
-                }
+            <ChatActionBar searchConversationInput={searchConversationInput} setsearchConversationInput={setsearchConversationInput} setNewConversation={setNewConversation} newConversation={newConversation}/>
+            {
+                conversations.filter(el =>
+                (el.members.find(member => member.includes(searchConversationInput)) || el.title.includes(searchConversationInput))
+                ).map((conversation) => <ConversationCard key={conversation.conversationId}
+                setActiveConversation={setActiveConversation} conversation={conversation} user={user} />)
+            }
             </section>
-           
-            {activeConversation && <ActiveChat activeConversation={activeConversation} newConversation={newConversation} setNewConversation={setNewConversation}
-            setDoneConversation={setDoneConversation} newDummy={newDummy} doneConversation={doneConversation} />}
-        
+            
+            {activeConversation && <ActiveChat socket={socket} activeConversation={activeConversation} user={user} setNewConversation={setNewConversation} newConversation={newConversation} setActiveConversation={setActiveConversation}/>}
         </div>
     )
 }
