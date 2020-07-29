@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import './CreateConversation.css';
 
 
-function CreateConversation({ inputText, members, setmembers }) {
+function CreateConversation({ inputText, members, setmembers, user }) {
     const [users, setusers] = useState();
 
     useEffect(() => {
@@ -20,8 +20,8 @@ function CreateConversation({ inputText, members, setmembers }) {
             {
 
                 (users) ?
-                    users.filter(user => !members.map(member => member.toLowerCase()).includes(user.username.toLowerCase()))
-                        .map(user => <CreateConvoProfile setmembers={setmembers} key={user.userId} user={user} members={members} />) :
+                    users.filter(usr => usr.username!==user.username && (!members.map(member => member.toLowerCase()).includes(usr.username.toLowerCase())))
+                        .map(usr => <CreateConvoProfile setmembers={setmembers} key={usr.userId} user={usr} members={members} />) :
                     null
             }
         </div>

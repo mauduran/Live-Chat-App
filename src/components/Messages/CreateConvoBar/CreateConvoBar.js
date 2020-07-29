@@ -52,7 +52,7 @@ function CreateConvoBar({newConversation, setNewConversation, setActiveConversat
                     </div>
                 <div>
                     <ul id="myUL">
-                        <li><CreateConversation inputText={inputText} members={members} setmembers={setmembers}/></li>
+                        <li><CreateConversation user={user} inputText={inputText} members={members} setmembers={setmembers}/></li>
                     </ul>
                 </div>
             </div>
