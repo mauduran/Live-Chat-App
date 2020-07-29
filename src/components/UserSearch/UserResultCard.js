@@ -13,7 +13,7 @@ function UserResultCard({ user, history }) {
             <img src="https://www.w3schools.com/howto/img_avatar.png" alt="user profile" />
             <div className="userInfo">
                 <h1>{user.name}</h1>
-                <h2>@{user.userName}</h2>
+                <h2>@{user.username}</h2>
                 <h2>{user.location}</h2>
             </div>
 

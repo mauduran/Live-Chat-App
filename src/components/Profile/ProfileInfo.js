@@ -17,7 +17,7 @@ function ProfileInfo ({ user }) {
                         <FormGroup>
                             <br/><br/>
                             <h1>{user.name}</h1>
-                            <h3>@{user.userName}</h3>
+                            <h3>@{user.username}</h3>
                             <h3>{user.status}</h3> 
                             <h3>{user.location}</h3>
                             <h3>Joined June 23rd, 2020</h3> 
