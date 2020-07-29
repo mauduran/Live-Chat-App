@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 import CreateConversation from '../CreateConversation/CreateConversation'
 
 
-function CreateConvoBar({newConversation, setNewConversation, setActiveConversation}) {
+function CreateConvoBar({newConversation, setNewConversation, setActiveConversation, user}) {
         const [inputText, setinputText] = useState('');
         const [members, setmembers] = useState([]);
 
@@ -19,11 +19,11 @@ function CreateConvoBar({newConversation, setNewConversation, setActiveConversat
             if(!members) return
             const newConversation ={
                 title: '',
-                members: members,
+                members: [...members, user.username],
             }
             fetch('http://localhost:3001/conversations',
                 {
-                    method:'post',
+                    method:'POST',
                     headers: {
                             'Content-Type': 'application/json'
                     },
