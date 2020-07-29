@@ -7,7 +7,7 @@ import CreateConvoBar from '../CreateConvoBar/CreateConvoBar';
 import './ActiveChat.css'
 
 
-export default function ActiveChat({ activeConversation, user, socket,  newConversation, setNewConversation, setActiveConversation}) {
+export default function ActiveChat({ activeConversation, user, socket, newConversation, setNewConversation, setActiveConversation}) {
     const [messages, setmessages] = useState([]);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function ActiveChat({ activeConversation, user, socket,  newConve
             {newConversation ? 
             <div style={{ display: 'flex', height: "calc(100% - 50px)" }}>
                 <div style={{ width: "100%", height: "100%" }}>
-                <CreateConvoBar newConversation={newConversation} setNewConversation={setNewConversation} setActiveConversation={setActiveConversation}
+                <CreateConvoBar user={user} newConversation={newConversation} setNewConversation={setNewConversation} setActiveConversation={setActiveConversation}
                />
                 </div>
             </div>
