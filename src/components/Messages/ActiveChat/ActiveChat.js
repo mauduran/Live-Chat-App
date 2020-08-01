@@ -6,27 +6,31 @@ import ActiveChatInput from '../ActiveChatInput/ActiveChatInput';
 import './ActiveChat.css'
 
 
-export default function ActiveChat({ activeConversation, user, socket, newConversation, setNewConversation, setActiveConversation }) {
+export default function ActiveChat({ conversationUpdate, activeConversation, user, socket, newConversation, setActiveConversation, setconversationUpdate, setincomingMessage, incomingMessage }) {
     const [messages, setmessages] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:3001/messages/${activeConversation.conversationId}`)
             .then(res => res.json())
-            .then(msgs => setmessages(msgs))
+            .then(msgs => {
+                setmessages(msgs);
+                setincomingMessage(false);
+            
+            })
             .catch(err => console.log(err));
 
-    }, [activeConversation]);
+    }, [activeConversation, conversationUpdate, incomingMessage ]);
 
     return (
         <div id='ActiveConversation' >
 
-            <div style={{ display: 'flex', height: "calc(100% - 50px)" }}>
-                <div style={{ width: "75%", height: "100%" }}>
+            <div style={{ display: 'flex', height: "100%" }}>
+                <div style={{ width: "75%",  height: "calc(100% - 50px)" }}>
                     <ConversationBar activeConversation={activeConversation} newConversation={newConversation} user={user} />
                     <ActiveChatMessages activeConversation={activeConversation} messages={messages} user={user} socket={socket} />
-                    <ActiveChatInput activeConversation={activeConversation} socket={socket} />
+                    <ActiveChatInput activeConversation={activeConversation} setconversationUpdate={setconversationUpdate} socket={socket} />
                 </div>
-                <ActiveChatInfo activeConversation={activeConversation} user={user} socket={socket} />
+                <ActiveChatInfo setconversationUpdate={setconversationUpdate} activeConversation={activeConversation} setActiveConversation={setActiveConversation} user={user} socket={socket} />
             </div>
 
         </div>

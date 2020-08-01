@@ -15,44 +15,47 @@ const initialUser = {
 }
 
 
-
 function App() {
   const [isLogged, setisLogged] = useState(false);
   const [user, setuser] = useState(initialUser);
   const [socket, setsocket] = useState();
-
+  const [incomingMessage, setincomingMessage] = useState(false);
   useEffect(() => {
     setsocket(io('localhost:3001'));
   }, [])
 
-useEffect(() => {
-  if(socket){
-    socket.on('incomingMessage', (msg)=>{
-      console.log(msg);
-    })
-    return () => {
-      socket.disconnect();
+  useEffect(() => {
+    if (socket) {
+      socket.on('incomingMessage', (msg) => {
+        setincomingMessage(true);
+      })
+      return () => {
+        socket.disconnect();
+      }
     }
-  }
 
-}, [socket]);
+  }, [socket]);
 
-useEffect(() => {
-  if(user && socket) socket.emit('login', user);
-}, [user, socket])
+  useEffect(() => {
+    if (user && socket) socket.emit('login', user);
+  }, [user, socket])
 
   return (
     <div className="App">
       <Router >
-        <Navigation isLogged={isLogged} setisLogged={setisLogged} setuser={setuser}/>
+        <Navigation isLogged={isLogged} setisLogged={setisLogged} setuser={setuser} />
         <div id="content">
           <Switch>
             <Route exact path="/" render={() => <Home />} />
-            <Route path="/login" render={()=><Login/>} />
-            <Route path="/myprofile" render={()=><MyProfile/>} />
-            <Route path="/profile/:id" render={()=><Profile/>} />
+            <Route path="/login" render={() => <Login />} />
+            <Route path="/myprofile" render={() => <MyProfile />} />
+            <Route path="/profile/:id" render={() => <Profile />} />
             <Route path="/search/:searchQuery" render={() => <UserSearch />} />
-            <Route path="/messages" render={() => <Messages user={user} socket={socket}/>} />
+            <Route path="/messages" render={() => <Messages
+              user={user}
+              socket={socket}
+              setincomingMessage={setincomingMessage}
+              incomingMessage={incomingMessage} />} />
           </Switch>
         </div>
       </Router>

@@ -5,7 +5,7 @@ import ConversationCard from '../ConversationCard/ConversationCard';
 import ActiveChat from '../ActiveChat/ActiveChat';
 import CreateConvoBar from '../CreateConvoBar/CreateConvoBar';
 
-export default function Conversations({ user, socket }) {
+export default function Conversations({ user, socket, setincomingMessage, incomingMessage }) {
 
     const [activeConversation, setActiveConversation] = useState(null);
     const [searchConversationInput, setsearchConversationInput] = useState('');
@@ -13,16 +13,17 @@ export default function Conversations({ user, socket }) {
     const [newConversation, setNewConversation] = useState(false);
     const [conversationUpdate, setconversationUpdate] = useState(true);
     useEffect(() => {
-        if(conversationUpdate){
-            fetch(`http://localhost:3001/conversations/${user.username}`)
+        fetch(`http://localhost:3001/conversations/${user.username}`)
             .then(res => res.json())
-            .then(convs => setconversations(convs))
+            .then(convs => {
+                setconversations(convs)
+                console.log(user);
+            })
             .catch(err => console.log(err));
 
-            setconversationUpdate(false);
-        }
+        setconversationUpdate(false);
 
-    }, [user, conversationUpdate])
+    }, [user, conversationUpdate, incomingMessage])
 
     return (
         <div style={{ width: '100%', height: '100%', display: 'flex' }}>
@@ -48,7 +49,16 @@ export default function Conversations({ user, socket }) {
                     </div>
 
                     : (activeConversation) ?
-                        <ActiveChat socket={socket} activeConversation={activeConversation} user={user} setNewConversation={setNewConversation} newConversation={newConversation} setActiveConversation={setActiveConversation} />
+                        <ActiveChat
+                            setincomingMessage={setincomingMessage}
+                            incomingMessage={incomingMessage}
+                            socket={socket}
+                            conversationUpdate={conversationUpdate}
+                            activeConversation={activeConversation} user={user}
+                            setNewConversation={setNewConversation}
+                            newConversation={newConversation}
+                            setActiveConversation={setActiveConversation}
+                            setconversationUpdate={setconversationUpdate} />
                         : null
             }
         </div>
