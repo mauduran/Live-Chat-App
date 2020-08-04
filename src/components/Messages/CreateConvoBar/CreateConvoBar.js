@@ -31,7 +31,7 @@ function CreateConvoBar({setNewConversation, setActiveConversation, user, setcon
                 } )
                 .then(res => res.json())
                 .then(conversation => {
-                    setActiveConversation(conversation);
+                    setActiveConversation(conversation.conversationId);
                     console.log('sending socket emit message...')
                     socket.emit('newConversation', conversation);
                     setconversationUpdate(true);

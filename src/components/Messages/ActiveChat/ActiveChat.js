@@ -6,32 +6,39 @@ import ActiveChatInput from '../ActiveChatInput/ActiveChatInput';
 import './ActiveChat.css'
 
 
-export default function ActiveChat({ conversationUpdate, activeConversation, user, socket, newConversation, setActiveConversation, setconversationUpdate, setincomingMessage, incomingMessage }) {
+export default function ActiveChat({ conversationUpdate, activeConversation, user, socket, newConversation, setconversationUpdate, setincomingMessage, incomingMessage, conversations }) {
     const [messages, setmessages] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3001/messages/${activeConversation.conversationId}`)
+        fetch(`http://localhost:3001/messages/${activeConversation}`)
             .then(res => res.json())
             .then(msgs => {
                 setmessages(msgs);
                 setincomingMessage(false);
-            
+
             })
             .catch(err => console.log(err));
 
-    }, [activeConversation, conversationUpdate, incomingMessage, setincomingMessage ]);
+    }, [activeConversation, conversationUpdate, incomingMessage, setincomingMessage]);
+
+    const activeConversationObj = (activeConversation) ? conversations.find(convo => convo.conversationId === activeConversation) : null;
+
 
     return (
         <div id='ActiveConversation' >
+            {
+                (activeConversationObj) ?
+                    <div style={{ display: 'flex', height: "100%" }}>
+                        <div style={{ width: "75%", height: "calc(100% - 50px)" }}>
+                            <ConversationBar activeConversation={activeConversationObj} conversations={conversations} newConversation={newConversation} user={user} />
+                            <ActiveChatMessages activeConversation={activeConversation} conversations={conversations} messages={messages} user={user} socket={socket} />
+                            <ActiveChatInput activeConversation={activeConversation} setconversationUpdate={setconversationUpdate} socket={socket} />
+                        </div>
+                        <ActiveChatInfo socket={socket} setconversationUpdate={setconversationUpdate} activeConversation={activeConversationObj} user={user} />
+                    </div>
+                    : null
+            }
 
-            <div style={{ display: 'flex', height: "100%" }}>
-                <div style={{ width: "75%",  height: "calc(100% - 50px)" }}>
-                    <ConversationBar activeConversation={activeConversation} newConversation={newConversation} user={user} />
-                    <ActiveChatMessages activeConversation={activeConversation} messages={messages} user={user} socket={socket} />
-                    <ActiveChatInput activeConversation={activeConversation} setconversationUpdate={setconversationUpdate} socket={socket} />
-                </div>
-                <ActiveChatInfo socket={socket} setconversationUpdate={setconversationUpdate} activeConversation={activeConversation} setActiveConversation={setActiveConversation} user={user} />
-            </div>
 
         </div>
     )

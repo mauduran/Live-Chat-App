@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ActiveChatInfo.css';
 
-export default function ActiveChatInfo({ activeConversation, user, setconversationUpdate, setActiveConversation, socket }) {
+export default function ActiveChatInfo({ activeConversation, user, setconversationUpdate, socket }) {
 
     const [newConversationTitle, setnewConversationTitle] = useState('');
 
@@ -27,10 +27,6 @@ export default function ActiveChatInfo({ activeConversation, user, setconversati
                     setconversationTitle(title);
                     socket.emit('updateConversationTitle', activeConversation.conversationId);
                     setconversationUpdate(true);
-                    setActiveConversation(activeConvo => ({
-                        ...activeConvo,
-                        title: title
-                    }));
                     setnewConversationTitle('');
                     
                 })

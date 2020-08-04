@@ -18,7 +18,7 @@ export default function ActiveChatInput({ activeConversation, setconversationUpd
         if (messageInput) {
 
             const dataObj = {
-                conversationId: activeConversation.conversationId,
+                conversationId: activeConversation,
                 type: 'message',
                 body: messageInput,
             }

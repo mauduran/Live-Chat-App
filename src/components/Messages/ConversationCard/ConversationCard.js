@@ -4,7 +4,7 @@ import moment from 'moment';
 
 export default function ConversationCard({ conversation, setActiveConversation, user, setNewConversation }) {
     return (
-        <div className='conversation-card' onClick={()=>{setActiveConversation(conversation); setNewConversation(false)}}>
+        <div className='conversation-card' onClick={()=>{setActiveConversation(conversation.conversationId); setNewConversation(false)}}>
             <img src='https://www.w3schools.com/howto/img_avatar.png' alt='profileImg' />
             <div className='conversation-detail'>
                 <p style={{ fontSize: '12px', margin: 0, fontWeight:"bold"}}>

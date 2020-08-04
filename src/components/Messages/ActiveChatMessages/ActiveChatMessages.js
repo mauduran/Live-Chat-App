@@ -14,7 +14,7 @@ export default function ActiveChatMessages({ messages, activeConversation, user 
     return (
         <div className="activeChatMsg" style={{ width: "100%", height: 'calc(100% - 50px)', overflow: "scroll", padding: "20px", boxSizing: 'border-box' }}>
             {
-                messages.filter(el=>el.conversationId===activeConversation.conversationId).map((message, id) => {
+                messages.filter(el=>el.conversationId===activeConversation).map((message, id) => {
                 
                     return (
                         <Message message={message} key={id} user={user} />

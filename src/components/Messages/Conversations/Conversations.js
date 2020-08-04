@@ -56,6 +56,7 @@ export default function Conversations({ user, socket, setincomingMessage, incomi
 
                     : (activeConversation) ?
                         <ActiveChat
+                            conversations={conversations}
                             setincomingMessage={setincomingMessage}
                             incomingMessage={incomingMessage}
                             socket={socket}
@@ -63,7 +64,6 @@ export default function Conversations({ user, socket, setincomingMessage, incomi
                             activeConversation={activeConversation} user={user}
                             setNewConversation={setNewConversation}
                             newConversation={newConversation}
-                            setActiveConversation={setActiveConversation}
                             setconversationUpdate={setconversationUpdate} />
                         : null
             }
