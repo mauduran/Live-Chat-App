@@ -29,6 +29,17 @@ function App() {
       socket.on('incomingMessage', (msg) => {
         setincomingMessage(true);
       })
+
+      socket.on('newConversation', (id) => {
+        socket.emit('suscribe', id)
+        setincomingMessage(true);
+      })
+
+      socket.on('updateConversationTitle', (id) => {
+        console.log('Conversation Title Change!!!')
+        setincomingMessage(true);
+      })
+      
       return () => {
         socket.disconnect();
       }

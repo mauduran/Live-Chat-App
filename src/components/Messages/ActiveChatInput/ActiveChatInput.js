@@ -37,6 +37,7 @@ export default function ActiveChatInput({ activeConversation, setconversationUpd
                 type="text"
                 name="messageInput"
                 id="messageInput"
+                autoComplete="false"
                 placeholder="Méntame la madre"
                 value={messageInput}
                 onChange={(e) => setmessageInput(e.target.value)}

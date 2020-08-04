@@ -14,7 +14,8 @@
     background-color: #b8b8b8;
     color: #383838;
     width: fit-content;
-    max-width: 30%;
+    max-width: 60%;
+    word-wrap: break-word;
     height: fit-content;
     border-radius: 10px;
      

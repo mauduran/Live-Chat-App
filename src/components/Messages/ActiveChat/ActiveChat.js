@@ -19,7 +19,7 @@ export default function ActiveChat({ conversationUpdate, activeConversation, use
             })
             .catch(err => console.log(err));
 
-    }, [activeConversation, conversationUpdate, incomingMessage ]);
+    }, [activeConversation, conversationUpdate, incomingMessage, setincomingMessage ]);
 
     return (
         <div id='ActiveConversation' >
@@ -30,7 +30,7 @@ export default function ActiveChat({ conversationUpdate, activeConversation, use
                     <ActiveChatMessages activeConversation={activeConversation} messages={messages} user={user} socket={socket} />
                     <ActiveChatInput activeConversation={activeConversation} setconversationUpdate={setconversationUpdate} socket={socket} />
                 </div>
-                <ActiveChatInfo setconversationUpdate={setconversationUpdate} activeConversation={activeConversation} setActiveConversation={setActiveConversation} user={user} socket={socket} />
+                <ActiveChatInfo socket={socket} setconversationUpdate={setconversationUpdate} activeConversation={activeConversation} setActiveConversation={setActiveConversation} user={user} />
             </div>
 
         </div>

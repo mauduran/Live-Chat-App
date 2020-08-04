@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 import CreateConversation from '../CreateConversation/CreateConversation'
 
 
-function CreateConvoBar({newConversation, setNewConversation, setActiveConversation, user, setconversationUpdate}) {
+function CreateConvoBar({setNewConversation, setActiveConversation, user, setconversationUpdate, socket}) {
         const [inputText, setinputText] = useState('');
         const [members, setmembers] = useState([]);
 
@@ -32,10 +32,14 @@ function CreateConvoBar({newConversation, setNewConversation, setActiveConversat
                 .then(res => res.json())
                 .then(conversation => {
                     setActiveConversation(conversation);
+                    console.log('sending socket emit message...')
+                    socket.emit('newConversation', conversation);
                     setconversationUpdate(true);
                     setNewConversation(false);
                 })
                 .catch(console.log);
+
+
         }
         
         return (

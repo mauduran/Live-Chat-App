@@ -17,13 +17,14 @@ export default function Conversations({ user, socket, setincomingMessage, incomi
             .then(res => res.json())
             .then(convs => {
                 setconversations(convs)
-                console.log(user);
             })
             .catch(err => console.log(err));
 
         setconversationUpdate(false);
 
     }, [user, conversationUpdate, incomingMessage])
+
+
 
     return (
         <div style={{ width: '100%', height: '100%', display: 'flex' }}>
@@ -42,7 +43,12 @@ export default function Conversations({ user, socket, setincomingMessage, incomi
                     <div id="NewConversation">
                         <div style={{ display: 'flex', height: "calc(100% - 50px)" }}>
                             <div style={{ width: "100%", height: "100%" }}>
-                                <CreateConvoBar setconversationUpdate={setconversationUpdate} user={user} newConversation={newConversation} setNewConversation={setNewConversation} setActiveConversation={setActiveConversation}
+                                <CreateConvoBar
+                                    socket={socket}
+                                    setconversationUpdate={setconversationUpdate}
+                                    user={user} newConversation={newConversation}
+                                    setNewConversation={setNewConversation}
+                                    setActiveConversation={setActiveConversation}
                                 />
                             </div>
                         </div>
