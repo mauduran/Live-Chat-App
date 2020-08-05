@@ -6,7 +6,7 @@ import ActiveChatInput from '../ActiveChatInput/ActiveChatInput';
 import './ActiveChat.css'
 
 
-export default function ActiveChat({ conversationUpdate, activeConversation, user, socket, newConversation, setconversationUpdate, setincomingMessage, incomingMessage, conversations }) {
+export default function ActiveChat({ conversationUpdate, activeConversation, user, socket, setconversationUpdate, setincomingMessage, incomingMessage, conversations }) {
     const [messages, setmessages] = useState([]);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function ActiveChat({ conversationUpdate, activeConversation, use
                 (activeConversationObj) ?
                     <div style={{ display: 'flex', height: "100%" }}>
                         <div style={{ width: "75%", height: "calc(100% - 50px)" }}>
-                            <ConversationBar activeConversation={activeConversationObj} conversations={conversations} newConversation={newConversation} user={user} />
+                            <ConversationBar activeConversation={activeConversationObj} conversations={conversations} user={user} />
                             <ActiveChatMessages activeConversation={activeConversation} conversations={conversations} messages={messages} user={user} socket={socket} />
                             <ActiveChatInput activeConversation={activeConversation} setconversationUpdate={setconversationUpdate} socket={socket} />
                         </div>
