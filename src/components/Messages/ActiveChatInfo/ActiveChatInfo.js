@@ -25,7 +25,6 @@ export default function ActiveChatInfo({ activeConversation, user, setconversati
                 .then(res => res.json())
                 .then(title => {
                     setconversationTitle(title);
-                    socket.emit('updateConversationTitle', activeConversation.conversationId);
                     setconversationUpdate(true);
                     setnewConversationTitle('');
                     

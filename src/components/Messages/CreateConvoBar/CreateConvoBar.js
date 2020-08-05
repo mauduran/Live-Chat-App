@@ -33,7 +33,7 @@ function CreateConvoBar({setNewConversation, setActiveConversation, user, setcon
                 .then(conversation => {
                     setActiveConversation(conversation.conversationId);
                     console.log('sending socket emit message...')
-                    socket.emit('newConversation', conversation);
+                    
                     setconversationUpdate(true);
                     setNewConversation(false);
                 })
