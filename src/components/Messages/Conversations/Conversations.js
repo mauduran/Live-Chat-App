@@ -21,8 +21,9 @@ export default function Conversations({ user, socket, setincomingMessage, incomi
             .catch(err => console.log(err));
 
         setconversationUpdate(false);
+        setincomingMessage(false);
 
-    }, [user, conversationUpdate, incomingMessage])
+    }, [user, conversationUpdate, incomingMessage, setincomingMessage])
 
 
 
@@ -63,7 +64,6 @@ export default function Conversations({ user, socket, setincomingMessage, incomi
                             conversationUpdate={conversationUpdate}
                             activeConversation={activeConversation} user={user}
                             setNewConversation={setNewConversation}
-                            newConversation={newConversation}
                             setconversationUpdate={setconversationUpdate} />
                         : null
             }
