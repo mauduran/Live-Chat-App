@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ProfileInfo from '../../components/Profile/ProfileInfo'
+import UserProfileInfo from '../../components/Profile/UserProfileInfo'
 import { withRouter } from 'react-router-dom';
 import './Profile.css';
 
@@ -19,7 +19,7 @@ function Profile({ match }) {
     return (
         <div id="Profile">
             {
-                (userProfileData)? < ProfileInfo user={userProfileData}/> : <h1 style={{textAlign: "center", marginTop: "5%"}}>User not found...</h1>
+                (userProfileData)? < UserProfileInfo user={userProfileData}/> : <h1 style={{textAlign: "center", marginTop: "5%"}}>User not found...</h1>
             }
         </div>
     )

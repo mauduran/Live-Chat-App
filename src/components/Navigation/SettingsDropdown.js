@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { Dropdown, DropdownMenu, DropdownToggle, DropdownItem } from 'reactstrap';
 
 export default function SettingsDropdown({ setisLogged }) {
@@ -18,7 +19,7 @@ export default function SettingsDropdown({ setisLogged }) {
                     <span className="navLink"><i className="fas fa-cog"></i></span>
                 </DropdownToggle>
                 <DropdownMenu right className="dropdown-menu">
-                    <DropdownItem><i className="fas fa-user-circle fa-fw"></i>My Profile</DropdownItem>
+                    <Link to="/myprofile"><DropdownItem><i className="fas fa-user-circle fa-fw"></i>My Profile</DropdownItem></Link>
                     <hr />
                     <DropdownItem><i className="fas fa-lock fa-fw"></i> Change Password</DropdownItem>
                     <hr />

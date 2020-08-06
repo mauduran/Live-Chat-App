@@ -3,7 +3,7 @@ import PP from '../../components/MyProfile/PP/PP'
 import ProfileInfo from '../../components/MyProfile/ProfileInfo/ProfileInfo'
 import EditableInfo from '../../components/MyProfile/EditableInfo/EditableInfo'
 import { Form, FormGroup,Container, Row, Col } from 'reactstrap';
-import './MyP.css'
+import './MyProfile.css'
 
 
 export default class Home extends Component {
