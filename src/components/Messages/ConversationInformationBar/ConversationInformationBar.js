@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './ActiveChatInfo.css';
+import './ConversationInformationBar.css';
 
-export default function ActiveChatInfo({ activeConversation, user, setconversationUpdate, socket }) {
+export default function ConversationInformationBar({ activeConversation, user, setconversationUpdate, socket }) {
 
     const [newConversationTitle, setnewConversationTitle] = useState('');
 

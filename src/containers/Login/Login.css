@@ -1,4 +1,4 @@
-#Login{
+#LoginForm{
     width: 100%;
     height: 97%;
     z-index: 999;
@@ -8,4 +8,6 @@
     background: rgb(189, 195, 199);
     background: linear-gradient(270deg, rgba(189, 195, 199, 1) 0%, rgba(44, 62, 80, 1) 100%);
     background: -webkit-linear-gradient(270deg, rgba(189, 195, 199, 1) 0%, rgba(44, 62, 80, 1) 100%);
+    display: flex;
+    justify-content: center;
 }

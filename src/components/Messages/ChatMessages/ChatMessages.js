@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import Message from '../Message/Message';
-import './ActiveChatMessages.css'
+import './ChatMessages.css'
 
-export default function ActiveChatMessages({ messages, activeConversation, user }) {
+export default function ChatMessages({ messages, activeConversation, user }) {
     const messagesEndRef = useRef(null)
 
     const scrollToBottom = () => {

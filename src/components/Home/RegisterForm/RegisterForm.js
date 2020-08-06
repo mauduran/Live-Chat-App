@@ -1,9 +1,9 @@
 import React from 'react';
-import './Register.css';
+import './RegisterForm.css';
 
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 
-const Register = () => {
+const RegisterForm = () => {
     return(
                     <Container id = "containerRegister" style={{backgroundColor: "#f8f8f8"}}>
                         <Form id = "formRegister">
@@ -65,4 +65,4 @@ const Register = () => {
     )
 }
 
-export default Register;
+export default RegisterForm;

@@ -1,8 +1,8 @@
 import React from 'react';
-import './CreateConvoProfile.css'
+import './NewConversationUserCard.css'
 
 
-function CreateConvoProfile({ user, setmembers }) {
+function NewConversationUserCard({ user, setmembers }) {
 
     function handleOnClick(e) {
         setmembers(members => [...members, user.username])
@@ -15,4 +15,4 @@ function CreateConvoProfile({ user, setmembers }) {
     );
 }
 
-export default CreateConvoProfile; 
+export default NewConversationUserCard; 

@@ -1,0 +1,12 @@
+#containerLogin {
+    width: 400px;
+    border-radius: 15px;
+    box-sizing: content-box;
+    padding: 2em;
+    background-color: #DCDFE3;
+}
+
+
+#LoginButton {
+    width: 100%;
+}

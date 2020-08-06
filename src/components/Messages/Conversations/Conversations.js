@@ -3,7 +3,7 @@ import './Conversations.css';
 import ChatActionBar from '../ChatActionBar/ChatActionBar';
 import ConversationCard from '../ConversationCard/ConversationCard';
 import ActiveChat from '../ActiveChat/ActiveChat';
-import CreateConvoBar from '../CreateConvoBar/CreateConvoBar';
+import CreateConversation from '../CreateConversation/CreateConversation';
 
 export default function Conversations({ user, socket, setincomingMessage, incomingMessage }) {
 
@@ -44,7 +44,7 @@ export default function Conversations({ user, socket, setincomingMessage, incomi
                     <div id="NewConversation">
                         <div style={{ display: 'flex', height: "calc(100% - 50px)" }}>
                             <div style={{ width: "100%", height: "100%" }}>
-                                <CreateConvoBar
+                                <CreateConversation
                                     socket={socket}
                                     setconversationUpdate={setconversationUpdate}
                                     user={user} newConversation={newConversation}

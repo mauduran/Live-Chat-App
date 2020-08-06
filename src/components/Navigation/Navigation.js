@@ -4,7 +4,7 @@ import { NavLink, withRouter } from "react-router-dom";
 
 import Logo from '../../assets/img/small_talk.png'
 import './Navigation.css';
-import SettingsButton from './SettingsButton';
+import SettingsDropdown from './SettingsDropdown';
 
 function Navigation({ isLogged, setisLogged, history, setuser }) {
     const [searchInput, setsearchInput] = useState("");
@@ -37,7 +37,7 @@ function Navigation({ isLogged, setisLogged, history, setuser }) {
                                 <span onClick={()=>setuser({username: 'mau4duran'})}><i className="fas fa-comment-alt"></i></span>
                             </NavLink>
 
-                            <SettingsButton setisLogged={setisLogged}/>
+                            <SettingsDropdown setisLogged={setisLogged}/>
                         </div>
                     </>
                 ) :

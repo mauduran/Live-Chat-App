@@ -1,7 +1,7 @@
 import React from 'react';
-import './ConversationBar.css';
+import './ConversationTitleBar.css';
 
-export default function ConversationBar({ activeConversation, user }) {
+export default function ConversationTitleBar({ activeConversation, user }) {
     return (
         <div id="conversationBar" style={{ width: '100%', height: '50px', backgroundColor: '#f8f8f8', borderBottom: '1px solid #383838' }} >
             <div id="conversationInfo" style={{ width: 'fit-content', height: '100%', margin: '0 auto', display: 'flex', alignItems: 'center' }}>

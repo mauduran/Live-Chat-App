@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import ActiveChatMessages from '../ActiveChatMessages/ActiveChatMessages'
-import ConversationBar from '../ConversationBar/ConversationBar';
-import ActiveChatInfo from '../ActiveChatInfo/ActiveChatInfo';
-import ActiveChatInput from '../ActiveChatInput/ActiveChatInput';
+import ChatMessages from '../ChatMessages/ChatMessages'
+import ConversationTitleBar from '../ConversationTitleBar/ConversationTitleBar';
+import ConversationInformationBar from '../ConversationInformationBar/ConversationInformationBar';
+import ChatMessageInput from '../ChatMessageInput/ChatMessageInput';
 import './ActiveChat.css'
 
 
@@ -30,11 +30,11 @@ export default function ActiveChat({ conversationUpdate, activeConversation, use
                 (activeConversationObj) ?
                     <div style={{ display: 'flex', height: "100%" }}>
                         <div style={{ width: "75%", height: "calc(100% - 50px)" }}>
-                            <ConversationBar activeConversation={activeConversationObj} conversations={conversations} user={user} />
-                            <ActiveChatMessages activeConversation={activeConversation} conversations={conversations} messages={messages} user={user} socket={socket} />
-                            <ActiveChatInput activeConversation={activeConversation} setconversationUpdate={setconversationUpdate} socket={socket} />
+                            <ConversationTitleBar activeConversation={activeConversationObj} conversations={conversations} user={user} />
+                            <ChatMessages activeConversation={activeConversation} conversations={conversations} messages={messages} user={user} socket={socket} />
+                            <ChatMessageInput activeConversation={activeConversation} setconversationUpdate={setconversationUpdate} socket={socket} />
                         </div>
-                        <ActiveChatInfo socket={socket} setconversationUpdate={setconversationUpdate} activeConversation={activeConversationObj} user={user} />
+                        <ConversationInformationBar socket={socket} setconversationUpdate={setconversationUpdate} activeConversation={activeConversationObj} user={user} />
                     </div>
                     : null
             }

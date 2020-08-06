@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Input, Button } from 'reactstrap';
 
-export default function ActiveChatInput({ activeConversation, setconversationUpdate, socket }) {
+export default function ChatMessageInput({ activeConversation, setconversationUpdate, socket }) {
     const [messageInput, setmessageInput] = useState('');
 
     useEffect(() => {
