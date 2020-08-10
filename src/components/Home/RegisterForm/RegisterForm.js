@@ -12,7 +12,7 @@ const RegisterForm = () => {
                             <Row id = "rowNames">
                                 <Col>
                                     <FormGroup>
-                                        <Label for="firstName">Fist Name</Label>
+                                        <Label for="firstName">First Name</Label>
                                         <Input type="text" name="firstName" id="firstName" placeholder="Enter your first name" />
                                     </FormGroup>
                                 </Col>
