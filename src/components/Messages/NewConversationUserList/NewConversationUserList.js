@@ -21,7 +21,7 @@ function NewConversationUserList({ inputText, members, setmembers, user }) {
 
                 (users) ?
                     users.filter(usr => usr.username!==user.username && (!members.map(member => member.toLowerCase()).includes(usr.username.toLowerCase())))
-                        .map(usr => <NewConversationUserCard setmembers={setmembers} key={usr.userId} user={usr} members={members} />) :
+                        .map(usr => <NewConversationUserCard setmembers={setmembers} key={usr._id} user={usr} members={members} />) :
                     null
             }
         </div>
